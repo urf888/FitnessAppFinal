@@ -1,0 +1,213 @@
+.user-admin-table-container {
+    overflow-x: auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+  }
+  
+  .table-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .search-bar input {
+    padding: 0.6rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 300px;
+    font-size: 0.9rem;
+  }
+  
+  .filters {
+    display: flex;
+    align-items: center;
+  }
+  
+  .filters label {
+    margin-right: 0.5rem;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .filters select {
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 0.9rem;
+  }
+  
+  .user-admin-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .user-admin-table th,
+  .user-admin-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .user-admin-table th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .user-admin-table tbody tr:hover {
+    background-color: #f8fcff;
+  }
+  
+  .role-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    text-transform: capitalize;
+  }
+  
+  .role-badge.admin {
+    background-color: #e3f2fd;
+    color: #1565c0;
+  }
+  
+  .role-badge.user {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+  }
+  
+  .profile-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+  }
+  
+  .profile-badge.has-profile {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+  }
+  
+  .profile-badge.no-profile {
+    background-color: #fafafa;
+    color: #757575;
+  }
+  
+  .actions-cell {
+    white-space: nowrap;
+    text-align: center;
+  }
+  
+  .action-button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    margin: 0 3px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .edit-button {
+    background-color: #fff8e1;
+    color: #ffa000;
+  }
+  
+  .edit-button:hover {
+    background-color: #ffecb3;
+  }
+  
+  .password-button {
+    background-color: #e8eaf6;
+    color: #3949ab;
+  }
+  
+  .password-button:hover {
+    background-color: #c5cae9;
+  }
+  
+  .delete-button {
+    background-color: #ffebee;
+    color: #d32f2f;
+  }
+  
+  .delete-button:hover {
+    background-color: #ffcdd2;
+  }
+  
+  .icon-edit, .icon-key, .icon-delete {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .icon-edit {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffa000'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E");
+  }
+  
+  .icon-key {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%233949ab'%3E%3Cpath d='M12.65 10A5.99 5.99 0 0 0 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6a5.99 5.99 0 0 0 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z'/%3E%3C/svg%3E");
+  }
+  
+  .icon-delete {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d32f2f'%3E%3Cpath d='M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z'/%3E%3C/svg%3E");
+  }
+  
+  .loading-cell {
+    text-align: center;
+    padding: 30px !important;
+    color: #666;
+  }
+  
+  .loading-spinner-small {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #4CAF50;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  
+  .empty-table-message {
+    text-align: center;
+    padding: 30px !important;
+    color: #666;
+    font-style: italic;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .table-actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .search-bar input {
+      width: 100%;
+    }
+  }

@@ -1,0 +1,127 @@
+.program-card {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .program-image-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .program-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  
+  .program-card:hover .program-image {
+    transform: scale(1.05);
+  }
+  
+  .program-type-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+  }
+  
+  .program-info {
+    padding: 15px;
+  }
+  
+  .program-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .program-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .program-detail {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .icon-gender, .icon-diet {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .icon-gender {
+    background-image: url('/icons/user.svg');
+  }
+  
+  .icon-diet {
+    background-image: url('/icons/food.svg');
+  }
+  
+  .view-details-btn {
+    width: 100%;
+    padding: 8px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .view-details-btn:hover {
+    background-color: #45a049;
+  }
+  
+  /* Stiluri pentru tipurile de programe */
+  .program-slabit .program-type-badge {
+    background-color: #e91e63;
+  }
+  
+  .program-masa .program-type-badge {
+    background-color: #2196f3;
+  }
+  
+  .program-fit .program-type-badge {
+    background-color: #4caf50;
+  }
+  
+  /* Border-bottom pentru diferite tipuri de programe */
+  .program-slabit {
+    border-bottom: 4px solid #e91e63;
+  }
+  
+  .program-masa {
+    border-bottom: 4px solid #2196f3;
+  }
+  
+  .program-fit {
+    border-bottom: 4px solid #4caf50;
+  }

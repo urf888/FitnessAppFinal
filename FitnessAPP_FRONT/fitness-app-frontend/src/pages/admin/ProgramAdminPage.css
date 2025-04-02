@@ -1,0 +1,85 @@
+.program-admin-page {
+    min-height: 100vh;
+    background-color: #f7f8fc;
+    padding-top: 60px; /* Spațiu pentru navbar */
+  }
+  
+  .program-admin-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .program-admin-content h1 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  
+  .admin-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+  }
+  
+  .add-program-button {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .add-program-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+  }
+  
+  .icon-add {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .error-message {
+    background-color: #ffebee;
+    color: #d32f2f;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #d32f2f;
+  }
+  
+  .success-message {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #2e7d32;
+  }
+  
+  @media (max-width: 768px) {
+    .program-admin-content {
+      padding: 1.5rem 0.8rem;
+    }
+    
+    .admin-actions {
+      justify-content: center;
+    }
+  }

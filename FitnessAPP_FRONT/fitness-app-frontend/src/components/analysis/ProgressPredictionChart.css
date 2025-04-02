@@ -1,0 +1,30 @@
+.progress-prediction-chart {
+    width: 100%;
+  }
+  
+  .progress-chart-tooltip {
+    background-color: white;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+    border: 1px solid #eee;
+  }
+  
+  .tooltip-label {
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 5px 0;
+    font-size: 0.9rem;
+  }
+  
+  .tooltip-value {
+    color: #555;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 768px) {
+    .progress-prediction-chart {
+      margin: 0 -10px;
+    }
+  }

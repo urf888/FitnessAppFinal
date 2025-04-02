@@ -1,0 +1,54 @@
+.macronutrient-chart {
+    width: 100%;
+    height: 250px;
+  }
+  
+  .macro-chart-tooltip {
+    background-color: white;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+    border: 1px solid #eee;
+  }
+  
+  .tooltip-label {
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 5px 0;
+    font-size: 0.9rem;
+  }
+  
+  .tooltip-value {
+    color: #555;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  
+  .macro-chart-legend {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #666;
+  }
+  
+  .legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  @media (max-width: 768px) {
+    .macronutrient-chart {
+      height: 200px;
+    }
+  }

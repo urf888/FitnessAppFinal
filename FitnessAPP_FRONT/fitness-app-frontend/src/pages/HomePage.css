@@ -1,0 +1,139 @@
+.homepage-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+    font-family: Arial, sans-serif;
+    padding-top: 60px; /* Spațiu pentru navbar */
+  }
+  
+  .homepage-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .homepage-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .homepage-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .feature-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .feature-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 2rem;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-card p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .feature-card button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .feature-card button:hover {
+    background-color: #45a049;
+  }
+  
+  .welcome-back {
+    margin-top: 3rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .welcome-back h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .welcome-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .welcome-back button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .welcome-back button:hover {
+    background-color: #45a049;
+  }
+  
+  .welcome-back .analysis-button {
+    background-color: #8bc34a;
+  }
+  
+  .welcome-back .analysis-button:hover {
+    background-color: #7cb342;
+  }
+  
+  @media (max-width: 768px) {
+    .feature-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .feature-card {
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .welcome-actions {
+      flex-direction: column;
+    }
+  }

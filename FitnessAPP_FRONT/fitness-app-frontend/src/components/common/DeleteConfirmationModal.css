@@ -1,0 +1,113 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal-container {
+    background-color: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    animation: modal-appear 0.3s ease-out;
+  }
+  
+  @keyframes modal-appear {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .modal-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.25rem;
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #999;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+  }
+  
+  .close-button:hover {
+    color: #333;
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .modal-body p {
+    margin: 0;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+  }
+  
+  .cancel-modal-button,
+  .confirm-delete-button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: none;
+  }
+  
+  .cancel-modal-button {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .cancel-modal-button:hover:not(:disabled) {
+    background-color: #e0e0e0;
+  }
+  
+  .confirm-delete-button {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .confirm-delete-button:hover:not(:disabled) {
+    background-color: #d32f2f;
+  }
+  
+  .cancel-modal-button:disabled,
+  .confirm-delete-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }

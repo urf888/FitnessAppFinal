@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FitnessAPP_BACK", "FitnessAPP_BACK", "{1822B818-C48F-1638-B4BA-3A1456862579}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessApp.API", "FitnessAPP_BACK\FitnessApp.API\FitnessApp.API.csproj", "{97196F4C-C0BE-337E-1567-CA35058B0D0C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97196F4C-C0BE-337E-1567-CA35058B0D0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97196F4C-C0BE-337E-1567-CA35058B0D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97196F4C-C0BE-337E-1567-CA35058B0D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97196F4C-C0BE-337E-1567-CA35058B0D0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{97196F4C-C0BE-337E-1567-CA35058B0D0C} = {1822B818-C48F-1638-B4BA-3A1456862579}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F658E78-C65A-4A7D-8749-8D83471B86EE}
+	EndGlobalSection
+EndGlobal

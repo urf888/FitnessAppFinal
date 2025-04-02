@@ -1,0 +1,286 @@
+.program-detail-page {
+    min-height: 100vh;
+    background-color: #f7f8fc;
+    padding-top: 60px; /* Spațiu pentru navbar */
+  }
+  
+  .program-detail-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .program-detail-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .program-header {
+    padding: 2rem;
+    position: relative;
+  }
+  
+  .back-link {
+    position: absolute;
+    top: 1.5rem;
+    left: 2rem;
+    background: none;
+    border: none;
+    color: #555;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s;
+  }
+  
+  .back-link:hover {
+    color: #333;
+  }
+  
+  .program-header h1 {
+    text-align: center;
+    margin: 1.5rem 0 1rem;
+    font-size: 2.2rem;
+    color: #333;
+  }
+  
+  .program-badges {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .program-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  
+  .gender-badge {
+    background-color: #e3f2fd;
+    color: #1976d2;
+  }
+  
+  .diet-badge {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+  }
+  
+  .type-badge {
+    background-color: #fce4ec;
+    color: #c2185b;
+  }
+  
+  .program-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 0 2rem 2rem;
+  }
+  
+  .program-image-section {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .program-detail-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .program-info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .program-description h2,
+  .program-ideal-for h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .program-description h2::after,
+  .program-ideal-for h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #4CAF50;
+  }
+  
+  .program-description p {
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  .program-ideal-for ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .program-ideal-for li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  .program-ideal-for li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+  }
+  
+  .program-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .enroll-button, .save-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .enroll-button {
+    background-color: #4CAF50;
+    color: white;
+    flex: 2;
+  }
+  
+  .enroll-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+  }
+  
+  .save-button {
+    background-color: #f0f0f0;
+    color: #333;
+    flex: 1;
+  }
+  
+  .save-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Stiluri pentru tipuri de programe */
+  .program-slabit .program-header {
+    background-color: #fce4ec;
+  }
+  
+  .program-masa .program-header {
+    background-color: #e3f2fd;
+  }
+  
+  .program-fit .program-header {
+    background-color: #e8f5e9;
+  }
+  
+  .program-slabit .program-description h2::after,
+  .program-slabit .program-ideal-for h2::after {
+    background-color: #e91e63;
+  }
+  
+  .program-masa .program-description h2::after,
+  .program-masa .program-ideal-for h2::after {
+    background-color: #2196f3;
+  }
+  
+  .program-fit .program-description h2::after,
+  .program-fit .program-ideal-for h2::after {
+    background-color: #4caf50;
+  }
+  
+  .program-slabit .enroll-button {
+    background-color: #e91e63;
+  }
+  
+  .program-slabit .enroll-button:hover {
+    background-color: #d81b60;
+  }
+  
+  .program-masa .enroll-button {
+    background-color: #2196f3;
+  }
+  
+  .program-masa .enroll-button:hover {
+    background-color: #1e88e5;
+  }
+  
+  .loading-container, 
+  .error-container,
+  .not-found-container {
+    text-align: center;
+    padding: 3rem;
+    margin: 2rem 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .error-actions, 
+  .not-found-container {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .retry-button,
+  .back-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    min-width: 160px;
+  }
+  
+  .retry-button {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .back-button {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  /* Media queries pentru responsivitate */
+  @media (max-width: 768px) {
+    .program-detail-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .program-header h1 {
+      font-size: 1.8rem;
+      margin-top: 3rem;
+    }
+    
+    .program-actions {
+      flex-direction: column;
+    }
+  }

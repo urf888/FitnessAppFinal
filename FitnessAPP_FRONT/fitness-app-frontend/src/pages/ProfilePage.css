@@ -1,0 +1,119 @@
+.profile-page {
+    min-height: 100vh;
+    background-color: #f7f8fc;
+    padding-top: 60px; /* Spațiu pentru navbar */
+  }
+  
+  .profile-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .profile-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .profile-header h1 {
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .profile-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .user-info {
+    margin-bottom: 2rem;
+  }
+  
+  .user-info-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .avatar {
+    width: 70px;
+    height: 70px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .user-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user-details h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .user-details p {
+    margin: 0.3rem 0 0;
+    color: #666;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 2rem;
+    font-style: italic;
+    color: #666;
+  }
+  
+  .error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #c62828;
+  }
+  
+  .success-message {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #2e7d32;
+  }
+  
+  .no-profile-message {
+    background-color: #fff8e1;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #ffc107;
+  }
+  
+  .no-profile-message p {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  /* Media queries pentru ecrane mai mici */
+  @media (max-width: 768px) {
+    .profile-content {
+      padding: 1.5rem 0.8rem;
+    }
+    
+    .user-info-header {
+      flex-direction: column;
+      text-align: center;
+    }
+  }

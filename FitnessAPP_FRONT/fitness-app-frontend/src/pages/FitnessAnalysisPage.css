@@ -1,0 +1,360 @@
+.fitness-analysis-page {
+    min-height: 100vh;
+    background-color: #f7f8fc;
+    padding-top: 60px; /* Spațiu pentru navbar */
+  }
+  
+  .analysis-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .analysis-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .analysis-header h1 {
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .analysis-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+  }
+  
+  .error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #c62828;
+  }
+  
+  .no-profile-warning {
+    background-color: #fff8e1;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-left: 4px solid #ffc107;
+  }
+  
+  .no-profile-warning h3 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .no-profile-warning p {
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+  
+  .create-profile-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .create-profile-button:hover {
+    background-color: #45a049;
+  }
+  
+  .analysis-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .analysis-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+  
+  .analysis-card h2 {
+    color: #333;
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .calorie-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .metric-item {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+  }
+  
+  .metric-item.highlight {
+    background-color: #e8f5e9;
+    border-left: 4px solid #4CAF50;
+  }
+  
+  .metric-label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.3rem;
+  }
+  
+  .metric-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.3rem;
+  }
+  
+  .metric-description {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .macros-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .macros-details {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .macro-item {
+    flex: 1;
+    min-width: 200px;
+    padding: 1rem;
+    border-radius: 6px;
+  }
+  
+  .macro-item.protein {
+    background-color: rgba(76, 175, 80, 0.1);
+    border-left: 3px solid #4CAF50;
+  }
+  
+  .macro-item.carbs {
+    background-color: rgba(33, 150, 243, 0.1);
+    border-left: 3px solid #2196F3;
+  }
+  
+  .macro-item.fat {
+    background-color: rgba(255, 193, 7, 0.1);
+    border-left: 3px solid #FFC107;
+  }
+  
+  .macro-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+  }
+  
+  .macro-color-indicator {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  
+  .macro-item.protein .macro-color-indicator {
+    background-color: #4CAF50;
+  }
+  
+  .macro-item.carbs .macro-color-indicator {
+    background-color: #2196F3;
+  }
+  
+  .macro-item.fat .macro-color-indicator {
+    background-color: #FFC107;
+  }
+  
+  .macro-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .macro-values {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  
+  .macro-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .macro-percentage {
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .macro-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+  }
+  
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  
+  .progress-metric {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    margin: 0 0.5rem;
+  }
+  
+  .progress-metric:first-child {
+    margin-left: 0;
+  }
+  
+  .progress-metric:last-child {
+    margin-right: 0;
+  }
+  
+  .progress-chart {
+    margin-bottom: 2rem;
+  }
+  
+  .bmi-comparison {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .bmi-item {
+    flex: 1;
+    text-align: center;
+    max-width: 200px;
+  }
+  
+  .bmi-arrow {
+    font-size: 2rem;
+    color: #999;
+    margin: 0 1.5rem;
+  }
+  
+  .bmi-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.3rem;
+  }
+  
+  .bmi-value {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.2rem;
+  }
+  
+  .bmi-category {
+    display: block;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+  }
+  
+  .analysis-disclaimer {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+  
+  .analysis-disclaimer h3 {
+    color: #333;
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .analysis-disclaimer p {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  @media (min-width: 768px) {
+    .macros-container {
+      flex-direction: row;
+    }
+    
+    .macronutrient-chart {
+      flex: 1;
+      margin-right: 1.5rem;
+    }
+    
+    .macros-details {
+      flex: 1;
+      margin-top: 0;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .progress-header {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .progress-metric {
+      margin: 0;
+    }
+    
+    .analysis-card {
+      padding: 1.2rem;
+    }
+    
+    .calorie-metrics {
+      gap: 1rem;
+    }
+    
+    .bmi-comparison {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .bmi-arrow {
+      transform: rotate(90deg);
+      margin: 0.5rem 0;
+    }
+  }
