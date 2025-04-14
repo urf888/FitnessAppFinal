@@ -1,0 +1,237 @@
+.recipes-page {
+  min-height: 100vh;
+  padding-top: 80px; /* Spațiu pentru navbar */
+}
+
+.recipes-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  margin: 0;
+  color: var(--light-color);
+  font-size: 2.2rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.ai-recipe-button, 
+.create-recipe-button {
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.ai-recipe-button {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.ai-recipe-button:hover {
+  background-color: #7c3aed;
+  transform: translateY(-2px);
+}
+
+.create-recipe-button {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.create-recipe-button:hover {
+  background-color: #059669;
+  transform: translateY(-2px);
+}
+
+/* Nou layout flexbox cu două coloane */
+.recipes-main-container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+/* Coloana principală cu rețete */
+.recipes-list-column {
+  flex: 3;
+  order: 1; /* Afișează rețetele în stânga (prima) */
+}
+
+/* Coloana secundară cu filtre */
+.recipes-filter-column {
+  flex: 1;
+  order: 2; /* Afișează filtrele în dreapta (a doua) */
+}
+
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.recipe-card-wrapper {
+  height: 100%;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  margin-top: 3rem;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-container {
+  text-align: center;
+  background-color: rgba(239, 68, 68, 0.1);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+  border-left: 4px solid var(--error-color);
+}
+
+.retry-button {
+  background-color: var(--error-color);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: background-color 0.2s;
+}
+
+.retry-button:hover {
+  background-color: #dc2626;
+}
+
+.no-recipes {
+  text-align: center;
+  background-color: rgba(15, 23, 42, 0.3);
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.no-recipes h3 {
+  margin-top: 0;
+  color: var(--light-color);
+}
+
+.reset-filters-button {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: all 0.2s;
+}
+
+.reset-filters-button:hover {
+  background-color: #059669;
+  transform: translateY(-2px);
+}
+
+/* Adaptare stiluri pentru RecipeFilter.css în contextul noului layout */
+.recipe-filter {
+  position: sticky;
+  top: 90px; /* Actualizat pentru noul navbar */
+  background-color: rgba(30, 41, 59, 0.5);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  height: fit-content;
+  min-width: 230px; /* Asigură o lățime minimă pentru filtre */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+}
+
+/* Stiluri responsive */
+@media screen and (max-width: 992px) {
+  .recipes-main-container {
+    flex-direction: column;
+  }
+  
+  .recipes-list-column, 
+  .recipes-filter-column {
+    flex: 1;
+    width: 100%;
+  }
+  
+  .recipes-filter-column {
+    order: 1; /* Filtrele apar deasupra pe ecrane mici */
+    margin-bottom: 2rem;
+  }
+  
+  .recipes-list-column {
+    order: 2; /* Lista de rețete vine după filtre pe ecrane mici */
+  }
+  
+  .recipe-filter {
+    position: static;
+    top: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .header-actions {
+    width: 100%;
+  }
+  
+  .ai-recipe-button,
+  .create-recipe-button {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .recipes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .recipes-grid {
+    grid-template-columns: 1fr;
+  }
+}

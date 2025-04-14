@@ -1,0 +1,151 @@
+.ingredients-selector {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .search-input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-input:focus {
+    border-color: #4caf50;
+  }
+  
+  .clear-button {
+    margin-left: 10px;
+    padding: 8px 12px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .clear-button:hover {
+    background-color: #e53935;
+  }
+  
+  .selected-ingredients {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .selected-ingredients h4 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: #333;
+  }
+  
+  .ingredient-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .ingredient-tag {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    background-color: #e8f5e9;
+    border-radius: 16px;
+    font-size: 13px;
+    color: #2e7d32;
+  }
+  
+  .remove-ingredient {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 6px;
+    width: 18px;
+    height: 18px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .remove-ingredient:hover {
+    background-color: #1b5e20;
+  }
+  
+  .no-ingredients {
+    color: #888;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  .available-ingredients {
+    padding: 12px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .available-ingredients h4 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: #333;
+  }
+  
+  .ingredient-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 8px;
+  }
+  
+  .ingredient-item {
+    padding: 8px 12px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+  
+  .ingredient-item:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .ingredient-item.selected {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .no-results {
+    color: #888;
+    font-size: 14px;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  @media (max-width: 768px) {
+    .ingredient-list {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+  }

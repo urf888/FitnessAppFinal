@@ -1,0 +1,130 @@
+.workout-day-form {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.8rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  
+  .workout-day-form h3 {
+    margin-top: 0;
+    margin-bottom: 1.8rem;
+    color: #333;
+    text-align: center;
+    font-size: 1.3rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .workout-day-form .form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .workout-day-form .form-group {
+    margin-bottom: 1.5rem;
+    flex: 1;
+  }
+  
+  .workout-day-form .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #555;
+    font-size: 0.95rem;
+  }
+  
+  .workout-day-form .required {
+    color: #e53935;
+    margin-left: 3px;
+  }
+  
+  .workout-day-form .form-group input,
+  .workout-day-form .form-group select,
+  .workout-day-form .form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+  
+  .workout-day-form .form-group input:focus,
+  .workout-day-form .form-group select:focus,
+  .workout-day-form .form-group textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+  }
+  
+  .workout-day-form .form-group input:hover,
+  .workout-day-form .form-group select:hover,
+  .workout-day-form .form-group textarea:hover {
+    border-color: #aaa;
+  }
+  
+  .workout-day-form .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .workout-day-form .cancel-button, 
+  .workout-day-form .save-button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+  }
+  
+  .workout-day-form .cancel-button {
+    background-color: #f5f5f5;
+    color: #555;
+  }
+  
+  .workout-day-form .cancel-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .workout-day-form .save-button {
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3);
+  }
+  
+  .workout-day-form .save-button:hover {
+    background-color: #45a049;
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.4);
+  }
+  
+  .workout-day-form .cancel-button:disabled,
+  .workout-day-form .save-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    .workout-day-form .form-row {
+      flex-direction: column;
+      gap: 0;
+    }
+    
+    .workout-day-form .form-actions {
+      flex-direction: column-reverse;
+    }
+    
+    .workout-day-form .cancel-button,
+    .workout-day-form .save-button {
+      width: 100%;
+    }
+  } 

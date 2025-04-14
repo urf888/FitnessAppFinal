@@ -30,7 +30,7 @@ namespace FitnessApp.API.Services
         {
             // Adăugăm logging pentru a vedea ce se primește
             Console.WriteLine($"Creating profile for user {profile.UserId}");
-            
+
             // Verificăm dacă există deja un profil pentru acest utilizator
             var existingProfile = await _context.UserProfiles
                 .FirstOrDefaultAsync(p => p.UserId == profile.UserId);
@@ -80,6 +80,10 @@ namespace FitnessApp.API.Services
             existingProfile.ActivityLevel = updatedProfile.ActivityLevel;
             existingProfile.Objective = updatedProfile.Objective;
             existingProfile.AllergiesRestrictions = updatedProfile.AllergiesRestrictions;
+            existingProfile.WeightGoal = updatedProfile.WeightGoal;
+            // Actualizăm noile proprietăți
+            existingProfile.Diet = updatedProfile.Diet;
+            existingProfile.Experience = updatedProfile.Experience;
 
             try
             {

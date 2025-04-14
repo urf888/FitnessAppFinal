@@ -1,0 +1,186 @@
+.recipe-list-container {
+    margin-bottom: 2rem;
+  }
+  
+  .recipe-list-container h3 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  
+  .results-count {
+    text-align: center;
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .recipe-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .recipe-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  
+  .recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .recipe-image {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+  }
+  
+  .recipe-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  
+  .recipe-card:hover .recipe-image img {
+    transform: scale(1.05);
+  }
+  
+  .match-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .excellent-match {
+    background-color: #4CAF50;
+  }
+  
+  .good-match {
+    background-color: #8BC34A;
+  }
+  
+  .fair-match {
+    background-color: #FFC107;
+    color: #333;
+  }
+  
+  .recipe-info {
+    padding: 1.2rem;
+  }
+  
+  .recipe-info h4 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+  
+  .recipe-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #666;
+  }
+  
+  .meta-icon {
+    width: 16px;
+    height: 16px;
+    margin-bottom: 0.3rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .calories-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'%3E%3Cpath d='M12 3c-4.8 0-9 3.86-9 9 0 2.12.74 4.07 1.97 5.61L3 19.59 4.41 21l1.97-1.97C7.93 20.26 9.88 21 12 21c2.12 0 4.07-.74 5.61-1.97L19.59 21 21 19.59l-1.97-1.97C20.26 16.07 21 14.12 21 12c0-5.14-4.2-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7zm-1.5-5.5V13H11v-1c0-.55.45-1 1-1h1c.55 0 1 .45 1 1s-.45 1-1 1h-1v-1h2v-1h-3c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1h3c.55 0 1-.45 1-1s-.45-1-1-1h-2z'/%3E%3C/svg%3E");
+  }
+  
+  .time-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'%3E%3Cpath d='M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z'/%3E%3C/svg%3E");
+  }
+  
+  .difficulty-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'%3E%3Cpath d='M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z'/%3E%3C/svg%3E");
+  }
+  
+  .matched-ingredients {
+    margin-bottom: 1rem;
+  }
+  
+  .matched-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+  
+  .ingredient-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .ingredient-tag {
+    padding: 0.3rem 0.6rem;
+    background-color: #f1f8e9;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #333;
+  }
+  
+  .view-recipe-button {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+  }
+  
+  .view-recipe-button:hover {
+    background-color: #45a049;
+  }
+  
+  .no-recipes {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    color: #666;
+  }
+  
+  @media (max-width: 768px) {
+    .recipe-cards {
+      grid-template-columns: 1fr;
+    }
+  }

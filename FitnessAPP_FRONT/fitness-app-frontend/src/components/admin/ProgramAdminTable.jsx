@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ProgramAdminTable.css';
 
-const ProgramAdminTable = ({ programs, onEdit, onDelete, isLoading }) => {
+const ProgramAdminTable = ({ programs, onEdit, onDelete, onManageWorkoutDays, isLoading }) => {
   const navigate = useNavigate();
 
   const handleViewProgram = (id) => {
@@ -63,6 +63,14 @@ const ProgramAdminTable = ({ programs, onEdit, onDelete, isLoading }) => {
                     title="Editează program"
                   >
                     <i className="icon-edit"></i>
+                  </button>
+                  
+                  <button 
+                    className="action-button workout-button"
+                    onClick={() => onManageWorkoutDays(program)}
+                    title="Administrează zile de antrenament"
+                  >
+                    <i className="icon-workout"></i>
                   </button>
                   
                   <button 

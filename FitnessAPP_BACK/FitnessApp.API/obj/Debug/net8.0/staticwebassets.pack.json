@@ -1,0 +1,69 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholder.jpg",
+      "PackagePath": "staticwebassets\\images\\placeholder.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholders\\default-program.jpg",
+      "PackagePath": "staticwebassets\\images\\placeholders\\default-program.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholders\\female-weight-loss.jpg",
+      "PackagePath": "staticwebassets\\images\\placeholders\\female-weight-loss.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholders\\general-fitness.jpg",
+      "PackagePath": "staticwebassets\\images\\placeholders\\general-fitness.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholders\\male-muscle-building.jpg",
+      "PackagePath": "staticwebassets\\images\\placeholders\\male-muscle-building.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholders\\placeholder.jpg",
+      "PackagePath": "staticwebassets\\images\\placeholders\\placeholder.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\programs\\default-program.jpg",
+      "PackagePath": "staticwebassets\\images\\programs\\default-program.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\programs\\female-weight-loss.jpg",
+      "PackagePath": "staticwebassets\\images\\programs\\female-weight-loss.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\programs\\general-fitness.jpg",
+      "PackagePath": "staticwebassets\\images\\programs\\general-fitness.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\programs\\male-muscle-building.jpg",
+      "PackagePath": "staticwebassets\\images\\programs\\male-muscle-building.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\uploads\\0d2dc64b-fc7a-46c2-8941-576d3ad5194c.jpg",
+      "PackagePath": "staticwebassets\\uploads\\0d2dc64b-fc7a-46c2-8941-576d3ad5194c.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\uploads\\c7a7a1a8-bc1e-4af2-ab8a-fefc581b93aa.jpg",
+      "PackagePath": "staticwebassets\\uploads\\c7a7a1a8-bc1e-4af2-ab8a-fefc581b93aa.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FitnessApp.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.FitnessApp.API.props",
+      "PackagePath": "build\\FitnessApp.API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.FitnessApp.API.props",
+      "PackagePath": "buildMultiTargeting\\FitnessApp.API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.FitnessApp.API.props",
+      "PackagePath": "buildTransitive\\FitnessApp.API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

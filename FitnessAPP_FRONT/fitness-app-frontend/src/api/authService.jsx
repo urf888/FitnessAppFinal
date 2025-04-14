@@ -46,7 +46,23 @@ export const getCurrentUser = () => {
   return userStr ? JSON.parse(userStr) : null;
 };
 
+export const getToken = () => {
+  return localStorage.getItem('authToken');
+};
+
 export const isUserAdmin = () => {
   const user = getCurrentUser();
   return user && user.role === 'admin';
+};
+
+// Adăugăm funcția getAuthHeaders necesară pentru încărcarea imaginilor și operațiuni cu rețetele
+export const getAuthHeaders = async () => {
+  const token = getToken();
+  const headers = new Headers();
+  
+  if (token) {
+    headers.append('Authorization', `Bearer ${token}`);
+  }
+  
+  return headers;
 };

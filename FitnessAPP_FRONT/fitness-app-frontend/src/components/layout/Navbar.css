@@ -1,79 +1,367 @@
 /* Navbar general */
 .navbar-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    padding: 10px;
-    z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(15, 23, 42, 0.95); /* Culoare închisă semi-transparentă */
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  box-sizing: border-box;
+  padding: 0 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo sau titlu site */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-brand:hover {
+  color: var(--secondary-color);
+}
+
+.brand-icon {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+}
+
+/* Container pentru linkurile din navbar */
+.navbar-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.navbar-link {
+  color: #e2e8f0;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navbar-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.navbar-link.active {
+  background-color: rgba(59, 130, 246, 0.25);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Auth links - login/register */
+.auth-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.auth-link {
+  font-weight: 500;
+}
+
+.auth-link:first-child {
+  color: #e2e8f0;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.auth-link:last-child {
+  color: #0f172a;
+  background-color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.auth-link:last-child:hover {
+  background-color: #059669;
+  color: white;
+}
+
+/* Dropdown pentru profilul utilizatorului */
+.navbar-user {
+  position: relative;
+}
+
+.navbar-user-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  cursor: pointer;
+  padding: 5px 12px 5px 5px;
+  border-radius: 30px;
+  transition: all 0.2s;
+  height: 38px;
+}
+
+.navbar-user-button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.username-text {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.dropdown-arrow {
+  font-size: 0.7rem;
+  margin-left: 2px;
+  opacity: 0.7;
+}
+
+.user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #1e293b;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  min-width: 240px;
+  z-index: 101;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.2s ease-in-out;
+  margin-top: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 6px 0;
+  margin: 0;
+}
+
+.dropdown-menu ul li {
+  padding: 0;
+}
+
+.dropdown-menu ul li button {
+  width: 100%;
+  text-align: left;
+  padding: 10px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #e2e8f0;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown-icon {
+  font-size: 1.1rem;
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+}
+
+.dropdown-menu ul li button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.dropdown-menu .admin-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 5px;
+  margin-top: 5px;
+}
+
+.dropdown-menu .logout-button {
+  color: #f87171;
+}
+
+.dropdown-menu .logout-button:hover {
+  background-color: rgba(248, 113, 113, 0.1);
+}
+
+/* Mobile menu toggle */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 64px);
+  background-color: #1e293b;
+  z-index: 99;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.mobile-link {
+  color: #e2e8f0;
+  text-decoration: none;
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  transition: all 0.2s;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-icon {
+  font-size: 1.2rem;
+  display: inline-block;
+  width: 24px;
+  text-align: center;
+}
+
+.mobile-link:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.mobile-link.active {
+  background-color: rgba(59, 130, 246, 0.25);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.admin-section-mobile {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-section-mobile h3 {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 10px 15px;
+  font-weight: 600;
+}
+
+.admin-link {
+  padding-left: 25px;
+}
+
+.mobile-logout-button {
+  margin-top: 20px;
+  padding: 12px 15px;
+  background-color: rgba(248, 113, 113, 0.1);
+  color: #f87171;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mobile-logout-button:hover {
+  background-color: rgba(248, 113, 113, 0.2);
+}
+
+/* Media queries pentru ecrane mici */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 15px;
   }
   
-  /* Butonul Menu */
-  .menu-button {
-    font-size: 20px;
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 101; /* Deasupra meniului */
-    position: fixed;
-    top: 10px;
-    left: 10px;
+  .desktop-links {
+    display: none;
   }
   
-  /* Sidebar */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    width: 250px;
-    height: 100vh;
-    background-color: #222;
-    transition: left 0.3s ease-in-out;
-    padding-top: 60px;
-    overflow-y: auto;
+  .mobile-toggle {
+    display: block;
   }
   
-  .sidebar.open {
-    left: 0;
+  .mobile-menu {
+    display: block;
   }
   
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
+  .navbar-brand {
+    font-size: 1.3rem;
   }
   
-  .sidebar ul li {
-    padding: 10px 15px;
+  .username-text {
+    display: none;
   }
-  
-  .sidebar ul li button {
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-    padding: 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Media queries pentru ecrane foarte mici */
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 10px;
   }
-  
-  .sidebar ul li button:hover {
-    background-color: #444;
-    color: #4CAF50;
-  }
-  
-  /* Stilizare pentru secțiunea de administrare */
-  .admin-section-title {
-    color: #aaa;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 20px;
-    padding-left: 15px;
-    border-bottom: 1px solid #444;
-  }
+}

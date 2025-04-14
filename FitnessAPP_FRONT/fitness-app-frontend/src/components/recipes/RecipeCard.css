@@ -1,0 +1,240 @@
+.recipe-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1; /* Valoare mai mică pentru z-index */
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Culori specifice pentru fiecare tip de obiectiv */
+.recipe-card.masă-card {
+  border-top: 4px solid #3b82f6; /* Albastru pentru masă musculară */
+}
+
+.recipe-card.slăbit-card {
+  border-top: 4px solid #ef4444; /* Roșu pentru slăbit */
+}
+
+.recipe-card.fit-card {
+  border-top: 4px solid #10b981; /* Verde pentru fitness */
+}
+
+.recipe-image-container {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.recipe-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.recipe-card:hover .recipe-image {
+  transform: scale(1.05);
+}
+
+.recipe-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.recipe-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.recipe-title {
+  padding: 16px 16px 8px;
+  margin: 0;
+  color: #1f2937;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  min-height: 46px;
+}
+
+.recipe-description {
+  padding: 0 16px;
+  margin: 0 0 12px;
+  color: #4b5563;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.recipe-meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-top: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+}
+
+.recipe-meta-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.meta-icon {
+  margin-right: 4px;
+}
+
+.recipe-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.recipe-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.diet-tag {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+.diet-tag.carnivor {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.diet-tag.vegetarian {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.diet-tag.vegan {
+  background-color: #ecfccb;
+  color: #3f6212;
+}
+
+.objective-tag {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+.objective-tag.masă {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.objective-tag.slăbit {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.objective-tag.fit {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.protein-tag {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+/* Buton de favorite */
+.favorite-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #9ca3af;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  z-index: 2; /* Un z-index mai mare decât cardul dar mai mic decât navbar-ul */
+}
+
+.favorite-button:hover {
+  transform: scale(1.1);
+}
+
+.favorite-button.is-favorite {
+  color: #f59e0b;
+}
+
+.favorite-button.toggling {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Buton de editare pentru admin */
+.edit-button {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #4b5563;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  z-index: 2; /* Un z-index mai mare decât cardul dar mai mic decât navbar-ul */
+}
+
+.edit-button:hover {
+  transform: scale(1.1);
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .recipe-title {
+    font-size: 1.1rem;
+  }
+  
+  .recipe-description {
+    font-size: 0.85rem;
+  }
+}

@@ -62,6 +62,17 @@ namespace FitnessApp.API.Controllers
                 // Actualizăm ID-ul utilizatorului în profil cu cel din token
                 profile.UserId = userId;
 
+                // Setăm valorile implicite pentru noile câmpuri dacă nu sunt furnizate
+                if (string.IsNullOrEmpty(profile.Diet))
+                {
+                    profile.Diet = "omnivore"; // Valoare implicită pentru dietă
+                }
+
+                if (string.IsNullOrEmpty(profile.Experience))
+                {
+                    profile.Experience = "beginner"; // Valoare implicită pentru experiență
+                }
+
                 var createdProfile = await _profileService.CreateProfileAsync(profile);
                 return CreatedAtAction(nameof(GetProfile), new { }, createdProfile);
             }

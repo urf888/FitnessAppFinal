@@ -11,11 +11,13 @@ const ProfileForm = ({ profile, onSave, isLoading, onCancel }) => {
     sex: '',
     activityLevel: '',
     objective: '',
-    allergiesRestrictions: ''
+    allergiesRestrictions: '',
+    weightGoal: '',
+    diet: '', // Câmp nou pentru dietă
+    experience: '' // Câmp nou pentru experiență
   });
 
   useEffect(() => {
-    // Dacă există un profil, completăm formularul cu datele acestuia
     if (profile) {
       setFormData({
         age: profile.age || '',
@@ -24,7 +26,10 @@ const ProfileForm = ({ profile, onSave, isLoading, onCancel }) => {
         sex: profile.sex || '',
         activityLevel: profile.activityLevel || '',
         objective: profile.objective || '',
-        allergiesRestrictions: profile.allergiesRestrictions || ''
+        allergiesRestrictions: profile.allergiesRestrictions || '',
+        weightGoal: profile.weightGoal || '',
+        diet: profile.diet || '', // Inițializează cu valoarea din profil
+        experience: profile.experience || '' // Inițializează cu valoarea din profil
       });
     }
   }, [profile]);
@@ -52,6 +57,7 @@ const ProfileForm = ({ profile, onSave, isLoading, onCancel }) => {
       age: parseInt(formData.age),
       weight: parseFloat(formData.weight),
       height: parseFloat(formData.height),
+      weightGoal: formData.weightGoal ? parseFloat(formData.weightGoal) : null,
       userId: currentUser.id
     };
     
@@ -100,7 +106,7 @@ const ProfileForm = ({ profile, onSave, isLoading, onCancel }) => {
         
         <div className="form-row">
           <div className="form-group">
-            <label htmlFor="weight">Greutate (kg) <span className="required">*</span></label>
+            <label htmlFor="weight">Greutate actuală (kg) <span className="required">*</span></label>
             <input
               type="number"
               id="weight"
@@ -115,17 +121,68 @@ const ProfileForm = ({ profile, onSave, isLoading, onCancel }) => {
           </div>
           
           <div className="form-group">
-            <label htmlFor="height">Înălțime (cm) <span className="required">*</span></label>
+            <label htmlFor="weightGoal">Greutate dorită (kg)</label>
             <input
               type="number"
-              id="height"
-              name="height"
-              value={formData.height}
+              id="weightGoal"
+              name="weightGoal"
+              value={formData.weightGoal}
               onChange={handleChange}
-              min="100"
-              max="250"
-              required
+              min="30"
+              max="300"
+              step="0.1"
             />
+          </div>
+        </div>
+        
+        <div className="form-group">
+          <label htmlFor="height">Înălțime (cm) <span className="required">*</span></label>
+          <input
+            type="number"
+            id="height"
+            name="height"
+            value={formData.height}
+            onChange={handleChange}
+            min="100"
+            max="250"
+            required
+          />
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="diet">Dietă</label>
+            <select
+              id="diet"
+              name="diet"
+              value={formData.diet}
+              onChange={handleChange}
+            >
+              <option value="">Selectează</option>
+              <option value="omnivore">Omnivoră</option>
+              <option value="vegetarian">Vegetariană</option>
+              <option value="vegan">Vegană</option>
+              <option value="carnivore">Carnivoră</option>
+              <option value="pescatarian">Pescatariană</option>
+              <option value="keto">Keto</option>
+              <option value="paleo">Paleo</option>
+            </select>
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="experience">Experiență în fitness</label>
+            <select
+              id="experience"
+              name="experience"
+              value={formData.experience}
+              onChange={handleChange}
+            >
+              <option value="">Selectează</option>
+              <option value="beginner">Începător</option>
+              <option value="intermediate">Intermediar</option>
+              <option value="advanced">Avansat</option>
+              <option value="professional">Profesionist</option>
+            </select>
           </div>
         </div>
         
@@ -181,12 +238,13 @@ const ProfileForm = ({ profile, onSave, isLoading, onCancel }) => {
             <button 
               type="button" 
               className="cancel-button" 
-              onClick={onCancel} 
+              onClick={onCancel}
               disabled={isLoading}
             >
               Anulează
             </button>
           )}
+          
           <button type="submit" className="save-button" disabled={isLoading}>
             {isLoading ? 'Se salvează...' : (profile ? 'Actualizează' : 'Salvează')}
           </button>

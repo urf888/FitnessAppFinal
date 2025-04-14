@@ -8,38 +8,72 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  
+  /* Variabile de culoare pentru tema aplicației */
+  --primary-color: #3b82f6;      /* Albastru */
+  --secondary-color: #10b981;    /* Verde */
+  --accent-color: #8b5cf6;       /* Violet */
+  --dark-color: #1e293b;         /* Bleumarin închis */
+  --light-color: #f8fafc;        /* Alb-gri foarte deschis */
+  --text-color: #334155;         /* Gri închis */
+  --text-light: #94a3b8;         /* Gri deschis */
+  --background-dark: #0f172a;    /* Bleumarin foarte închis */
+  --background-light: #f1f5f9;   /* Gri foarte deschis */
+  --success-color: #22c55e;      /* Verde succes */
+  --warning-color: #f59e0b;      /* Portocaliu avertisment */
+  --error-color: #ef4444;        /* Roșu eroare */
 }
 
+/* Aplicăm fundalul la nivel global pentru tot body-ul */
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  color: #333;
+  color: var(--light-color);
+  
+  /* Background gradient și pattern subtil global */
+  background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  background-image: 
+    linear-gradient(135deg, rgba(15, 23, 42, 0.97) 0%, rgba(51, 65, 85, 0.97) 100%),
+    url('/images/bg-pattern.png'); /* Pattern subtil pentru textură */
+  background-attachment: fixed;
+  background-size: cover;
 }
 
+/* Stil global pentru butoane */
 button {
   cursor: pointer;
 }
 
+/* Stil global pentru link-uri */
 a {
   text-decoration: none;
   color: inherit;
 }
 
+/* Stil global pentru liste */
 ul {
   list-style: none;
 }
 
+/* Stil global pentru headinguri */
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5rem;
+  color: var(--light-color);
+}
+
+/* Stil global pentru paragrafe */
+p {
+  color: var(--light-color);
+  opacity: 0.9;
 }
 
 /* Adaugă marginea pentru conținutul principal pentru a evita suprapunerea cu navbar-ul */
 .content-with-navbar {
-  margin-top: 60px;
+  margin-top: 64px; /* Ajustat la înălțimea navbar-ului */
 }
 
-/* Clase utilitare */
+/* Clase utilitare globale */
 .text-center {
   text-align: center;
 }
@@ -48,6 +82,12 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+/* Clasa pentru pagini cu padding-top standard pentru navbar */
+.page-container {
+  padding-top: 80px; /* Spațiu pentru navbar */
+  min-height: 100vh;
 }
 
 /* Media queries pentru responsive design */
@@ -59,4 +99,334 @@ h1, h2, h3, h4, h5, h6 {
   h2 {
     font-size: 1.5rem;
   }
+
+
+}
+
+/* Adaugă aceste stiluri la sfârșitul fișierului index.css pentru a asigura vizibilitatea textului */
+
+/* Fix vizibilitate text pentru toate paginile */
+body {
+  color-scheme: dark; /* Indică preferința pentru o temă întunecată */
+}
+
+/* Fix general pentru culori text */
+.app-content p,
+.app-content h1,
+.app-content h2,
+.app-content h3,
+.app-content h4,
+.app-content h5,
+.app-content h6,
+.app-content label,
+.app-content span,
+.app-content div,
+.app-content table,
+.app-content th,
+.app-content td,
+.app-content li,
+.app-content a:not(.navbar-link):not(.btn) {
+  color: var(--light-color);
+}
+
+/* Fix pentru input-uri, select-uri și textarea */
+input, select, textarea {
+  background-color: rgba(30, 41, 59, 0.7);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Asigură-te că elementele de control din formulare sunt vizibile */
+input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+select option {
+  background-color: #1e293b;
+  color: white;
+}
+
+/* Fix pentru carduri și containere */
+.card, .container-card, .info-card, .data-card {
+  background-color: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Fix pentru tabele */
+table {
+  background-color: rgba(30, 41, 59, 0.7);
+  color: var(--light-color);
+  border-collapse: collapse;
+}
+
+table th {
+  background-color: rgba(15, 23, 42, 0.8);
+  color: var(--light-color);
+}
+
+table td, table tr {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--light-color);
+}
+
+/* Fix pentru butoane */
+button:not(.navbar-link):not(.card-button):not([class*="btn-"]) {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+/* Fix pentru linkuri */
+a:not(.navbar-link) {
+  color: var(--primary-color);
+}
+
+a:not(.navbar-link):hover {
+  color: #60a5fa;
+}
+
+/* ADAUGARE: Stiluri pentru afișarea statisticilor în format orizontal */
+
+/* Transformăm containerul primei secțiuni din pagina admin pentru a afișa statisticile orizontal */
+.admin-page .container > h1 + div, /* Containerul care urmează după h1 */
+.admin-info-card,
+.card-stats-container,
+.user-stats,
+.dashboard-stats,
+.admin-stats-container {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 15px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* Stilizarea fiecărui card de statistici */
+.admin-page .container > h1 + div > div,
+.admin-info-card > div,
+.card-stats-container > div,
+.user-stats > div,
+.dashboard-stats > div,
+.admin-stats-container > div {
+  flex: 1;
+  min-width: 150px;
+  background-color: rgba(30, 41, 59, 0.7);
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin: 0;
+}
+
+/* Adăugăm un hover effect pentru carduri */
+.admin-page .container > h1 + div > div:hover,
+.admin-info-card > div:hover,
+.card-stats-container > div:hover,
+.user-stats > div:hover,
+.dashboard-stats > div:hover,
+.admin-stats-container > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Stiluri pentru titlurile cardurilor */
+.admin-page .container > h1 + div > div h3,
+.admin-info-card > div h3,
+.card-stats-container > div h3,
+.user-stats > div h3,
+.dashboard-stats > div h3,
+.admin-stats-container > div h3 {
+  font-size: 0.9rem;
+  margin: 0 0 8px 0;
+  padding: 0;
+  color: var(--light-color);
+  opacity: 0.9;
+  border-bottom: none;
+}
+
+/* Stiluri pentru valorile din carduri */
+.admin-page .container > h1 + div > div p,
+.admin-info-card > div p,
+.card-stats-container > div p,
+.user-stats > div p,
+.dashboard-stats > div p,
+.admin-stats-container > div p {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 5px 0 0 0;
+  padding: 0;
+  color: var(--light-color);
+}
+
+/* Culori diferite pentru fiecare card */
+.admin-page .container > h1 + div > div:nth-child(1),
+.admin-info-card > div:nth-child(1),
+.card-stats-container > div:nth-child(1),
+.user-stats > div:nth-child(1),
+.dashboard-stats > div:nth-child(1),
+.admin-stats-container > div:nth-child(1) {
+  border-left: 4px solid var(--primary-color);
+}
+
+.admin-page .container > h1 + div > div:nth-child(2),
+.admin-info-card > div:nth-child(2),
+.card-stats-container > div:nth-child(2),
+.user-stats > div:nth-child(2),
+.dashboard-stats > div:nth-child(2),
+.admin-stats-container > div:nth-child(2) {
+  border-left: 4px solid var(--accent-color);
+}
+
+.admin-page .container > h1 + div > div:nth-child(3),
+.admin-info-card > div:nth-child(3),
+.card-stats-container > div:nth-child(3),
+.user-stats > div:nth-child(3),
+.dashboard-stats > div:nth-child(3),
+.admin-stats-container > div:nth-child(3) {
+  border-left: 4px solid var(--secondary-color);
+}
+
+.admin-page .container > h1 + div > div:nth-child(4),
+.admin-info-card > div:nth-child(4),
+.card-stats-container > div:nth-child(4),
+.user-stats > div:nth-child(4),
+.dashboard-stats > div:nth-child(4),
+.admin-stats-container > div:nth-child(4) {
+  border-left: 4px solid var(--warning-color);
+}
+
+/* Media queries pentru afișare responsivă */
+@media (max-width: 768px) {
+  .admin-page .container > h1 + div,
+  .admin-info-card,
+  .card-stats-container,
+  .user-stats,
+  .dashboard-stats,
+  .admin-stats-container {
+    flex-wrap: wrap;
+  }
+  
+  .admin-page .container > h1 + div > div,
+  .admin-info-card > div,
+  .card-stats-container > div,
+  .user-stats > div,
+  .dashboard-stats > div,
+  .admin-stats-container > div {
+    min-width: calc(50% - 8px);
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-page .container > h1 + div > div,
+  .admin-info-card > div,
+  .card-stats-container > div,
+  .user-stats > div,
+  .dashboard-stats > div,
+  .admin-stats-container > div {
+    min-width: 100%;
+  }
+}
+/* Add this at the very end of your index.css file */
+
+/* Forcing horizontal layout for stat cards */
+.stat-card,               /* Target standard stat card class */
+.admin-info-card > div,   /* Target divs inside admin info card */
+.admin-page .container > h1 + div > div {  /* Target divs in first container after h1 */
+  display: inline-block !important;
+  width: 24% !important;  /* Slightly less than 25% to account for margins */
+  vertical-align: top !important;
+  margin-right: 1% !important;
+  margin-bottom: 10px !important;
+  float: none !important;
+  position: static !important;
+  box-sizing: border-box !important;
+}
+
+/* Container styles to ensure horizontal layout */
+.admin-info-card,
+.admin-page .container > h1 + div {
+  display: block !important;
+  text-align: left !important;
+  width: 100% !important;
+  white-space: nowrap !important;
+  overflow-x: auto !important;
+  padding-bottom: 10px !important;
+}
+
+/* No right margin for last stat card in a row */
+.stat-card:nth-child(4),
+.admin-info-card > div:nth-child(4),
+.admin-page .container > h1 + div > div:nth-child(4) {
+  margin-right: 0 !important;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .stat-card,
+  .admin-info-card > div,
+  .admin-page .container > h1 + div > div {
+    width: 49% !important; /* Two cards per row */
+    margin-right: 2% !important;
+  }
+  
+  .stat-card:nth-child(2n),
+  .admin-info-card > div:nth-child(2n),
+  .admin-page .container > h1 + div > div:nth-child(2n) {
+    margin-right: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-card,
+  .admin-info-card > div,
+  .admin-page .container > h1 + div > div {
+    width: 100% !important; /* One card per row */
+    margin-right: 0 !important;
+  }
+}
+/* Adaugă aceste stiluri la sfârșitul fișierului index.css */
+
+/* Ajustarea poziției titlului pe pagina de analiză */
+.analysis-page .analysis-content h1,
+.fitness-analysis-page .analysis-content h1,
+.analysis-page h1,
+.fitness-analysis-page h1 {
+  margin-top: 30px !important; /* Adaugă spațiu suplimentar deasupra titlului */
+  padding-top: 20px !important;
+}
+
+/* Asigură-te că conținutul întregii pagini are suficient padding pentru a evita navbar-ul */
+.analysis-page,
+.fitness-analysis-page {
+  padding-top: 80px !important; /* Ajustează această valoare în funcție de înălțimea navbar-ului tău */
+}
+
+/* Îmbunătățirea spațierii pentru conținutul principal */
+.analysis-page .analysis-content,
+.fitness-analysis-page .analysis-content {
+  padding-top: 20px !important;
+}
+
+/* Stil special pentru primul titlu de pe pagină pentru lizibilitate mai bună */
+.analysis-page h1:first-of-type,
+.fitness-analysis-page h1:first-of-type {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  color: var(--light-color) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important; /* Adaugă un efect de umbră pentru lizibilitate mai bună */
 }

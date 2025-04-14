@@ -1,5 +1,6 @@
 C:\Users\ptudo\FitnessAPP\FitnessAPP_BACK\FitnessApp.API\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\ptudo\FitnessAPP\FitnessAPP_BACK\FitnessApp.API\bin\Debug\net8.0\appsettings.json
+C:\Users\ptudo\FitnessAPP\FitnessAPP_BACK\FitnessApp.API\bin\Debug\net8.0\FitnessApp.API.staticwebassets.runtime.json
 C:\Users\ptudo\FitnessAPP\FitnessAPP_BACK\FitnessApp.API\bin\Debug\net8.0\FitnessApp.API.exe
 C:\Users\ptudo\FitnessAPP\FitnessAPP_BACK\FitnessApp.API\bin\Debug\net8.0\FitnessApp.API.deps.json
 C:\Users\ptudo\FitnessAPP\FitnessAPP_BACK\FitnessApp.API\bin\Debug\net8.0\FitnessApp.API.runtimeconfig.json
@@ -155,6 +156,7 @@ C:\Users\ptudo\FitnessAPP\FitnessAPP_BACK\FitnessApp.API\obj\Debug\net8.0\Fitnes
 C:\Users\ptudo\FitnessAPP\FitnessAPP_BACK\FitnessApp.API\obj\Debug\net8.0\FitnessApp.API.csproj.CoreCompileInputs.cache
 C:\Users\ptudo\FitnessAPP\FitnessAPP_BACK\FitnessApp.API\obj\Debug\net8.0\FitnessApp.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\ptudo\FitnessAPP\FitnessAPP_BACK\FitnessApp.API\obj\Debug\net8.0\FitnessApp.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ptudo\FitnessAPP\FitnessAPP_BACK\FitnessApp.API\obj\Debug\net8.0\FitnessApp.API.sourcelink.json
 C:\Users\ptudo\FitnessAPP\FitnessAPP_BACK\FitnessApp.API\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\ptudo\FitnessAPP\FitnessAPP_BACK\FitnessApp.API\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\ptudo\FitnessAPP\FitnessAPP_BACK\FitnessApp.API\obj\Debug\net8.0\staticwebassets\msbuild.FitnessApp.API.Microsoft.AspNetCore.StaticWebAssets.props

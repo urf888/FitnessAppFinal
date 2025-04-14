@@ -1,142 +1,254 @@
 .program-form-container {
-    background-color: white;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.program-form-container h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.required {
+  color: #d32f2f;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Stiluri specifice pentru textarea-uri diferite */
+.form-group textarea#goals,
+.form-group textarea#requiredEquipment {
+  min-height: 80px;
+}
+
+/* Stiluri pentru placeholder-uri */
+.form-group textarea::placeholder,
+.form-group input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Stiluri pentru hover pe input-uri */
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+  border-color: #bbb;
+}
+
+/* Gruparea câmpurilor în secțiuni */
+.form-section {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.form-section-title {
+  font-size: 1.1rem;
+  color: #4CAF50;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.image-preview {
+  margin-top: 0.8rem;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  border-radius: 4px;
+  max-width: 300px;
+}
+
+.image-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.save-button,
+.cancel-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  min-width: 120px;
+}
+
+.save-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.save-button:hover:not(:disabled) {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.cancel-button {
+  background-color: #f0f0f0;
+  color: #555;
+}
+
+.cancel-button:hover:not(:disabled) {
+  background-color: #e0e0e0;
+}
+
+.save-button:disabled,
+.cancel-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Tooltip pentru ajutor */
+.help-tooltip {
+  display: inline-block;
+  margin-left: 6px;
+  position: relative;
+  cursor: help;
+}
+
+.help-icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 200px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-weight: normal;
+  font-size: 0.8rem;
+}
+
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.help-tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Animație pentru salvare */
+@keyframes highlight {
+  0% {
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4);
   }
-  
-  .program-form-container h2 {
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    color: #333;
-    font-size: 1.5rem;
-    text-align: center;
+  50% {
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.4);
   }
-  
-  .form-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .form-group {
-    margin-bottom: 1.2rem;
-    flex: 1;
-    min-width: 200px;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: #333;
-    font-size: 0.9rem;
-  }
-  
-  .required {
-    color: #d32f2f;
-  }
-  
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
-  }
-  
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    outline: none;
+  100% {
     border-color: #4CAF50;
     box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
   }
-  
-  .form-group textarea {
-    resize: vertical;
-    min-height: 100px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  animation: highlight 0.3s ease-in-out;
+}
+
+/* Media queries pentru responsivitate */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
   }
   
-  .image-preview {
-    margin-top: 0.8rem;
-    border: 1px solid #ddd;
-    padding: 0.5rem;
-    border-radius: 4px;
-    max-width: 300px;
-  }
-  
-  .image-preview img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 2px;
+  .form-group {
+    min-width: auto;
   }
   
   .form-actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: 2rem;
+    flex-direction: column-reverse;
   }
   
   .save-button,
   .cancel-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    min-width: 120px;
+    width: 100%;
   }
-  
-  .save-button {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  .save-button:hover:not(:disabled) {
-    background-color: #45a049;
-    transform: translateY(-2px);
-  }
-  
-  .cancel-button {
-    background-color: #f0f0f0;
-    color: #555;
-  }
-  
-  .cancel-button:hover:not(:disabled) {
-    background-color: #e0e0e0;
-  }
-  
-  .save-button:disabled,
-  .cancel-button:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
-  
-  /* Media queries pentru responsivitate */
-  @media (max-width: 768px) {
-    .form-row {
-      flex-direction: column;
-    }
-    
-    .form-group {
-      min-width: auto;
-    }
-    
-    .form-actions {
-      flex-direction: column-reverse;
-    }
-    
-    .save-button,
-    .cancel-button {
-      width: 100%;
-    }
-  }
+}

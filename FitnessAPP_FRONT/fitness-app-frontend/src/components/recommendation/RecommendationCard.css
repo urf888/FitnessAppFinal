@@ -1,0 +1,304 @@
+.recommendation-card {
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInUp 0.5s ease-out;
+  }
+  
+  .recommendation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+  
+  .card-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5fbf5;
+  }
+  
+  .card-header h3 {
+    margin: 0;
+    color: #2d3748;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .quick-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .stat-tag {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background-color: #e6f5e6;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #2d3748;
+  }
+  
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .fitness-section,
+  .nutrition-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .fitness-section h4,
+  .nutrition-section h4 {
+    margin: 0;
+    color: #2d3748;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+  
+  .fitness-section h4::before,
+  .nutrition-section h4::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+  }
+  
+  .fitness-section h4::before {
+    background-color: #4CAF50;
+  }
+  
+  .nutrition-section h4::before {
+    background-color: #3182ce;
+  }
+  
+  .program-preview,
+  .recipe-preview {
+    display: flex;
+    gap: 1rem;
+    background-color: #f9fafb;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 150px;
+  }
+  
+  .program-image,
+  .recipe-image {
+    flex: 0 0 150px;
+    overflow: hidden;
+  }
+  
+  .program-image img,
+  .recipe-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  
+  .program-preview:hover .program-image img,
+  .recipe-preview:hover .recipe-image img {
+    transform: scale(1.05);
+  }
+  
+  .placeholder-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #cbd5e0;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .program-details,
+  .recipe-details {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  .program-details h5,
+  .recipe-details h5 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: #2d3748;
+  }
+  
+  .program-tags,
+  .recipe-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .program-tag,
+  .recipe-tag {
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .program-tag {
+    background-color: #e6f5e6;
+    color: #2c7a2c;
+  }
+  
+  .recipe-tag {
+    background-color: #e6f0fa;
+    color: #2c5c7a;
+  }
+  
+  .program-description {
+    font-size: 0.85rem;
+    color: #718096;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .recipe-macros {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+  }
+  
+  .macro {
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #718096;
+    font-weight: 500;
+  }
+  
+  .macro-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .protein-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e53e3e'%3E%3Cpath d='M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7-.25c.41 0 .75.34.75.75s-.34.75-.75.75-.75-.34-.75-.75.34-.75.75-.75zM9.1 17H7v-2.14l5.96-5.96 2.12 2.12L9.1 17zm7.75-7.73l-1.06 1.06-2.12-2.12 1.06-1.06c.2-.2.51-.2.71 0l1.41 1.41c.2.2.2.51 0 .71z'/%3E%3C/svg%3E");
+  }
+  
+  .carbs-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%233182ce'%3E%3Cpath d='M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7-.25c.41 0 .75.34.75.75s-.34.75-.75.75-.75-.34-.75-.75.34-.75.75-.75zM9.1 17H7v-2.14l5.96-5.96 2.12 2.12L9.1 17zm7.75-7.73l-1.06 1.06-2.12-2.12 1.06-1.06c.2-.2.51-.2.71 0l1.41 1.41c.2.2.2.51 0 .71z'/%3E%3C/svg%3E");
+  }
+  
+  .fat-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ecc94b'%3E%3Cpath d='M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7-.25c.41 0 .75.34.75.75s-.34.75-.75.75-.75-.34-.75-.75.34-.75.75-.75zM9.1 17H7v-2.14l5.96-5.96 2.12 2.12L9.1 17zm7.75-7.73l-1.06 1.06-2.12-2.12 1.06-1.06c.2-.2.51-.2.71 0l1.41 1.41c.2.2.2.51 0 .71z'/%3E%3C/svg%3E");
+  }
+  
+  .view-button {
+    align-self: flex-end;
+    padding: 0.6rem 1.2rem;
+    background-color: #f5f5f5;
+    color: #4a5568;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .view-button:hover {
+    background-color: #4CAF50;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .recommendation-footer {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #f0f0f0;
+  }
+  
+  .generate-button {
+    padding: 0.8rem 1.5rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(76, 175, 80, 0.2);
+  }
+  
+  .generate-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Stiluri responsive */
+  @media (min-width: 768px) {
+    .card-content {
+      flex-direction: row;
+    }
+    
+    .fitness-section, 
+    .nutrition-section {
+      flex: 1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .card-header {
+      flex-direction: column;
+      gap: 0.8rem;
+      align-items: flex-start;
+    }
+    
+    .program-preview,
+    .recipe-preview {
+      flex-direction: column;
+      height: auto;
+    }
+    
+    .program-image,
+    .recipe-image {
+      height: 150px;
+      flex-basis: auto;
+    }
+  }

@@ -1,127 +1,399 @@
 .program-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-bottom: 4px solid transparent;
+}
+
+.program-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.program-card.list-view {
+  flex-direction: row;
+  height: auto;
+  max-height: 220px;
+}
+
+.program-image-wrapper {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.program-card.list-view .program-image-wrapper {
+  width: 220px;
+  min-width: 220px;
+  height: 100%;
+}
+
+.program-image-container {
+  width: 100%;
+  height: 100%;
+}
+
+.program-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.program-card:hover .program-image {
+  transform: scale(1.08);
+}
+
+/* Overlay pentru a îmbunătăți citibilitatea badge-ului */
+.program-image-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.program-type-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+  background-color: #4a5568;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.program-type-badge.type-weight-loss {
+  background-color: #e53e3e;
+}
+
+.program-type-badge.type-muscle-gain {
+  background-color: #3182ce;
+}
+
+.program-type-badge.type-fitness {
+  background-color: #38a169;
+}
+
+.program-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+
+.program-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+}
+
+.program-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.program-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detail-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.icon-gender {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234a5568'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+}
+
+.icon-food {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234a5568'%3E%3Cpath d='M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-8-15.03-8-15.03 0h15.03zM1.02 17h15v2h-15z'/%3E%3C/svg%3E");
+}
+
+.icon-meat {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%234a5568'%3E%3Cpath d='M425.7 118.8l-65 65c-8.1 8.1-13.7 18.5-15.8 29.9l-8.8 52.2-88.6 88.6c-19.5 19.5-44.9 33.7-72.1 40.3-15.6 3.8-30.7 9.5-44.7 16.8l-38.6 20.3C57.9 449.7 23.5 442.7 8.3 412.2c-10.8-21.7-5.3-47.9 13.3-64.2l159.8-159.8 52.2-8.8c11.4-2.1 21.8-7.7 29.9-15.8l65-65c8.3-8.3 21.8-8.3 30.1 0l67.1 67.1c8.2 8.3 8.2 21.8 0 30.1z'/%3E%3C/svg%3E");
+}
+
+.icon-plant {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%234a5568'%3E%3Cpath d='M64 96H0c0 123.7 100.3 224 224 224v144c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V320C288 196.3 187.7 96 64 96zm384-64c-84.2 0-157.4 46.5-195.7 115.2 27.7 30.2 48.2 66.9 59 107.6C424 243.1 512 147.9 512 32h-64z'/%3E%3C/svg%3E");
+}
+
+.icon-vegetable {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%234a5568'%3E%3Cpath d='M457.5 275.6c13 14.2 22.4 31.4 27.6 50.2 9.5 34.3-1.1 60.4-26.7 81.3-19.2 15.7-41.4 21.6-65.8 23-18.9 1.1-37.8.4-56.6-1.4-14.9-1.4-18-7.1-11.7-20.3 7.2-15.1 15.7-29.7 23.4-44.6 1.6-3 2.4-6.6 3.7-10.4 3.4-.8 6.4-1.9 9.5-2.2 11.6-1.1 20.8-5.5 28-14.5 6.8-8.4 9.9-18 5.5-28.7-4-9.6-12.5-13.8-22.3-15.8-15.2-3-30-2.9-44.9 1.7-10.8 3.4-21.4 7.6-32 11.8-4.3 1.7-8.3 4-12.5 6 8.2-15.4 16.4-30.8 24.5-46.2 9.2-17.3 18.4-34.5 27.7-51.7 4.2-7.7 2.2-16.3-4.6-21.4-15.9-12-35.5-13.5-54-4.1-14.7 7.5-25.3 19.6-33.8 33-13.3 21-22.2 44.1-31.1 67.1-7.2 18.5-14.1 37.2-21.1 55.8-.9 2.4-1.9 4.8-3.4 8.3-2.4-13.3-4.3-25.8-6.9-38.2-2.3-10.9-4.8-21.8-8-32.5-2.8-9.1-11.9-12.9-21.5-10.4-10.9 2.8-21.7 6.1-32.5 9.1-37.3 10.4-73.8 7.9-109.2-9.3-14.2-6.9-27.1-16-38.3-27.4-5.4-5.5-11.1-8.9-19.5-8.2-8.2.7-14.1 4.5-18.5 10.9-4 5.9-6.3 12.4-4.2 19.6 2.1 7.2 6.9 11.3 13.3 14.5 10.9 5.4 22.1 10.5 33.6 14.7 27.8 10.1 56.7 11.8 85.8 11.9 7.4 0 14.8-.9 22.2-1.4 2.5-.2 5-.3 7.6-.5l-69.1 132.8c-10 19.3-20 38.6-30.4 57.8-9.3 17.2-13.1 35.6-10.4 55.3 1.3 9.6 3.9 18.9 7.7 28 8.6 20.5 23.4 33.9 45.2 38.4 8.4 1.7 17.3 1.5 25.8 1.4 2.4-.1 6.3-3.2 6.9-5.6 9.8-36.2 28.2-68.2 52.3-97.4 1.2-1.5 2.7-2.9 4.1-4.3.3-5.3 0-10.6.5-15.9.9-9.8 2.4-19.6 5.2-29.1.9-3.1 2.9-6.2 5.3-8.3 14.5-12.8 29.3-25.3 44.2-37.6 13.3-10.9 27.7-13.9 44-10.4 6.4 1.3 8.5 5.7 5.8 11.5-2.6 5.6-5.6 11-8.6 16.4-14.2 25-31.5 47.8-50.5 69.2-4.3 4.8-8.8 9.4-13.8 14.8 34-10.8 60.8-32.3 85.4-57.7 23.9-24.6 43.8-52.5 62.2-81.8 5.3-8.4 10.4-16.8 16.3-24.8 9.9-13.7 23.6-21.9 40.5-23.1 5.7-.4 11.4-.9 17.1-.7 18.8.5 29.1 15.4 22 32.8-4.9 12.1-13 21.9-22.5 30.6-11.8 10.8-24.8 20.2-37.2 30.2-1.7 1.4-3.6 2.7-5.7 4.3 5.8-1.6 11.8-2.9 17.5-4.9 28.9-9.9 57.7-19.9 86.6-29.9 2.7-.9 5.5-1.5 8.2-2.5 13-4.5 17.5-15.8 10.8-27.6-3.9-6.9-9.7-11.6-17.2-13.9-6.2-1.9-11.9-5.2-18.2-6.4-30.8-5.9-61.6-11.2-92.4-16.5-6.7-1.2-9-5.3-6.2-11.5 1.2-2.7 3.1-5.1 4.9-7.4 9.7-12.4 21.8-21.8 36.6-27.3 17.7-6.5 35.6-7.9 54 .2 4.2 1.8 8.3 4 12.5 5.9 9.6 4.3 18.4 2.8 25.1-4.8z'/%3E%3C/svg%3E");
+}
+
+.icon-calendar {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234a5568'%3E%3Cpath d='M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z'/%3E%3C/svg%3E");
+}
+
+.detail-text {
+  font-size: 0.875rem;
+  color: #4a5568;
+}
+
+.program-description {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  color: #718096;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.program-card.list-view .program-description {
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.program-difficulty {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+}
+
+.difficulty-label {
+  font-size: 0.75rem;
+  color: #718096;
+  margin-bottom: 0.5rem;
+}
+
+.difficulty-bar {
+  height: 4px;
+  background-color: #e2e8f0;
+  border-radius: 2px;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.difficulty-level {
+  height: 100%;
+  border-radius: 2px;
+}
+
+.level-beginner {
+  width: 33.33%;
+  background-color: #48bb78;
+}
+
+.level-intermediate {
+  width: 66.66%;
+  background-color: #ed8936;
+}
+
+.level-advanced {
+  width: 100%;
+  background-color: #e53e3e;
+}
+
+.difficulty-text {
+  font-size: 0.75rem;
+  color: #4a5568;
+  align-self: flex-end;
+}
+
+.view-program-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.view-program-btn:hover {
+  background-color: #388e3c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-icon-arrow {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 0.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.2s ease;
+}
+
+.view-program-btn:hover .btn-icon-arrow {
+  transform: translateX(3px);
+}
+
+/* Color indicators for different program types */
+.type-weight-loss {
+  border-bottom-color: #e53e3e;
+}
+
+.type-muscle-gain {
+  border-bottom-color: #3182ce;
+}
+
+.type-fitness {
+  border-bottom-color: #38a169;
+}
+
+.type-weight-loss .view-program-btn {
+  background-color: #e53e3e;
+}
+
+.type-weight-loss .view-program-btn:hover {
+  background-color: #c53030;
+}
+
+.type-muscle-gain .view-program-btn {
+  background-color: #3182ce;
+}
+
+.type-muscle-gain .view-program-btn:hover {
+  background-color: #2b6cb0;
+}
+
+.type-fitness .view-program-btn {
+  background-color: #38a169;
+}
+
+.type-fitness .view-program-btn:hover {
+  background-color: #2f855a;
+}
+
+@media (max-width: 768px) {
+  .program-card.list-view {
+    flex-direction: column;
+    max-height: none;
+  }
+  
+  .program-card.list-view .program-image-wrapper {
     width: 100%;
-    max-width: 350px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: white;
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-    margin-bottom: 20px;
+    height: 180px;
   }
   
-  .program-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  .program-title {
+    font-size: 1.1rem;
   }
-  
-  .program-image-container {
-    position: relative;
-    height: 200px;
-    overflow: hidden;
-  }
-  
-  .program-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s;
-  }
-  
-  .program-card:hover .program-image {
-    transform: scale(1.05);
-  }
-  
-  .program-type-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: white;
-  }
-  
-  .program-info {
-    padding: 15px;
-  }
-  
-  .program-info h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.2rem;
-    color: #333;
-  }
-  
-  .program-details {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-  }
-  
-  .program-detail {
-    display: flex;
-    align-items: center;
-    font-size: 0.9rem;
-    color: #666;
-  }
-  
-  .icon-gender, .icon-diet {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    margin-right: 5px;
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  
-  .icon-gender {
-    background-image: url('/icons/user.svg');
-  }
-  
-  .icon-diet {
-    background-image: url('/icons/food.svg');
-  }
-  
-  .view-details-btn {
-    width: 100%;
-    padding: 8px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .view-details-btn:hover {
-    background-color: #45a049;
-  }
-  
-  /* Stiluri pentru tipurile de programe */
-  .program-slabit .program-type-badge {
-    background-color: #e91e63;
-  }
-  
-  .program-masa .program-type-badge {
-    background-color: #2196f3;
-  }
-  
-  .program-fit .program-type-badge {
-    background-color: #4caf50;
-  }
-  
-  /* Border-bottom pentru diferite tipuri de programe */
-  .program-slabit {
-    border-bottom: 4px solid #e91e63;
-  }
-  
-  .program-masa {
-    border-bottom: 4px solid #2196f3;
-  }
-  
-  .program-fit {
-    border-bottom: 4px solid #4caf50;
-  }
+}
+
+/* Aceste stiluri se pot adăuga la sfârșitul ProgramCard.css */
+
+/* Stiluri pentru butonul de vizualizare programe cu efecte avansate */
+.view-program-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.2rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  margin-top: auto;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Efect de strălucire la hover */
+.view-program-btn::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background: linear-gradient(120deg, 
+    rgba(255,255,255,0) 0%, 
+    rgba(255,255,255,0.2) 20%, 
+    rgba(255,255,255,0.5) 50%, 
+    rgba(255,255,255,0.2) 80%, 
+    rgba(255,255,255,0) 100%);
+  background-size: 200% 200%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.4s ease;
+  transform: translateX(-100%);
+}
+
+.view-program-btn:hover::before {
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+.view-program-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.view-program-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-icon-arrow {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 0.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+}
+
+.view-program-btn:hover .btn-icon-arrow {
+  transform: translateX(5px);
+}
+
+/* Stilizare buton în funcție de tipul programului */
+.type-weight-loss .view-program-btn {
+  background-color: #e53e3e;
+  background-image: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+}
+
+.type-muscle-gain .view-program-btn {
+  background-color: #3182ce;
+  background-image: linear-gradient(135deg, #3182ce 0%, #2b6cb0 100%);
+}
+
+.type-fitness .view-program-btn {
+  background-color: #38a169;
+  background-image: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+}

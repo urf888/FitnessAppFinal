@@ -1,85 +1,303 @@
 .program-admin-page {
-    min-height: 100vh;
-    background-color: #f7f8fc;
-    padding-top: 60px; /* Spațiu pentru navbar */
-  }
-  
+  min-height: 100vh;
+  background-color: #f7f8fc;
+  padding-top: 60px; /* Spațiu pentru navbar */
+}
+
+.program-admin-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.program-admin-content h1 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+/* ---------- Stiluri pentru acțiuni ---------- */
+.admin-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+  padding: 10px 0;
+}
+
+.add-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-width: 180px;
+  height: 40px;
+}
+
+.add-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.icon-add {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+/* ---------- Stiluri pentru mesaje ---------- */
+.error-message {
+  background-color: #ffebee;
+  color: #d32f2f;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #d32f2f;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.success-message {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #2e7d32;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* ---------- Stiluri pentru opțiuni după salvare ---------- */
+.success-options {
+  background-color: #f0f7f0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid #4CAF50;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.success-options p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+.success-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.option-button {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 200px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.option-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.continue-editing {
+  background-color: #f5f5f5;
+  color: #555;
+}
+
+.continue-editing:hover {
+  background-color: #e0e0e0;
+}
+
+.manage-workout-days {
+  background-color: #2196f3;
+  color: white;
+}
+
+.manage-workout-days:hover {
+  background-color: #1976d2;
+}
+
+.back-to-list {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.back-to-list:hover {
+  background-color: #45a049;
+}
+
+/* ---------- Stiluri pentru tab-uri ---------- */
+.admin-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tab-button {
+  padding: 0.8rem 1.5rem;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.tab-button:hover {
+  background-color: #e0e0e0;
+}
+
+.tab-button.active {
+  background-color: #4CAF50;
+  color: white;
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3);
+}
+
+/* ---------- Stiluri pentru breadcrumbs ---------- */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  font-size: 0.9rem;
+  color: #666;
+  flex-wrap: wrap;
+  padding: 4px 0;
+}
+
+.breadcrumb-link {
+  background: none;
+  border: none;
+  color: #2196f3;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.breadcrumb-link:hover {
+  color: #0d47a1;
+}
+
+.breadcrumb-separator {
+  margin: 0 0.5rem;
+  color: #ccc;
+}
+
+.breadcrumb-current {
+  font-weight: 600;
+  color: #666;
+}
+
+/* ---------- Responsive styles ---------- */
+@media (max-width: 992px) {
   .program-admin-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
   }
   
   .program-admin-content h1 {
-    text-align: center;
-    margin-bottom: 0.5rem;
-    color: #333;
+    font-size: 1.8rem;
   }
   
   .subtitle {
-    text-align: center;
-    color: #666;
-    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .program-admin-content {
+    padding: 1.5rem 0.8rem;
   }
   
   .admin-actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1.5rem;
+    justify-content: center;
   }
   
-  .add-program-button {
-    display: flex;
-    align-items: center;
-    padding: 0.8rem 1.2rem;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+  .admin-tabs {
+    flex-direction: column;
+    align-items: flex-start;
   }
   
-  .add-program-button:hover {
-    background-color: #45a049;
-    transform: translateY(-2px);
+  .tab-button {
+    width: 100%;
   }
   
-  .icon-add {
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    margin-right: 8px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z'/%3E%3C/svg%3E");
-    background-size: contain;
-    background-repeat: no-repeat;
+  .breadcrumbs {
+    margin-left: 0;
+    margin-top: 1rem;
+    width: 100%;
   }
   
-  .error-message {
-    background-color: #ffebee;
-    color: #d32f2f;
-    padding: 1rem;
-    border-radius: 4px;
-    margin-bottom: 1.5rem;
-    border-left: 4px solid #d32f2f;
+  .success-buttons {
+    flex-direction: column;
   }
   
-  .success-message {
-    background-color: #e8f5e9;
-    color: #2e7d32;
-    padding: 1rem;
-    border-radius: 4px;
-    margin-bottom: 1.5rem;
-    border-left: 4px solid #2e7d32;
+  .option-button {
+    width: 100%;
   }
   
-  @media (max-width: 768px) {
-    .program-admin-content {
-      padding: 1.5rem 0.8rem;
-    }
-    
-    .admin-actions {
-      justify-content: center;
-    }
+  .program-admin-content h1 {
+    font-size: 1.6rem;
   }
+}
+
+/* ---------- Animații ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success-message,
+.error-message,
+.success-options {
+  animation: fadeIn 0.3s ease-out forwards;
+}

@@ -1,0 +1,129 @@
+/* 
+ * Stylesheet for ImageUploader component
+ * Provides a clean, responsive design for image upload functionality
+ */
+
+ .image-uploader {
+    /* Container styling for consistent layout */
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .image-upload-container {
+    /* Creates a defined area for image upload interactions */
+    border: 2px dashed #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .image-upload-container:hover {
+    /* Subtle hover effect to indicate interactivity */
+    border-color: #3498db;
+    background-color: #f9f9f9;
+  }
+  
+  .image-preview-wrapper {
+    /* Container for image with actions */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .image-preview {
+    /* Styling for the uploaded image */
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-actions {
+    /* Styling for image modification buttons */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .change-image-btn,
+  .clear-image-btn,
+  .upload-image-btn {
+    /* Common button styling */
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .change-image-btn {
+    /* Style for changing image button */
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .change-image-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .clear-image-btn {
+    /* Style for clearing image button */
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .clear-image-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  .upload-image-btn {
+    /* Style for initial upload button */
+    background-color: #2ecc71;
+    color: white;
+  }
+  
+  .upload-image-btn:hover {
+    background-color: #27ae60;
+  }
+  
+  .no-image-placeholder {
+    /* Styling for the placeholder when no image is selected */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .no-image-placeholder p {
+    color: #7f8c8d;
+    margin: 0;
+  }
+  
+  .error-message {
+    /* Styling for error messages */
+    color: #e74c3c;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .image-actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .change-image-btn,
+    .clear-image-btn,
+    .upload-image-btn {
+      width: 100%;
+    }
+  }

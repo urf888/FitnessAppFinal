@@ -1,0 +1,434 @@
+.exercise-manager {
+    width: 100%;
+  }
+  
+  .manager-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .manager-header h2 {
+    margin: 0;
+    color: #333;
+  }
+  
+  .back-button {
+    background: none;
+    border: none;
+    color: #4CAF50;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .back-button:hover {
+    text-decoration: underline;
+  }
+  
+  .error-message, .success-message {
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .error-message {
+    background-color: #ffebee;
+    color: #d32f2f;
+    border-left: 4px solid #d32f2f;
+  }
+  
+  .success-message {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-left: 4px solid #2e7d32;
+  }
+  
+  .search-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+  }
+  
+  .search-input {
+    flex: 2;
+    min-width: 200px;
+  }
+  
+  .search-input input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .search-input input:focus {
+    outline: none;
+    border-color: #4CAF50;
+  }
+  
+  .filter-dropdown {
+    flex: 1;
+    min-width: 150px;
+  }
+  
+  .filter-dropdown select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: white;
+  }
+  
+  .filter-dropdown select:focus {
+    outline: none;
+    border-color: #4CAF50;
+  }
+  
+  .add-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    height: 40px;
+  }
+  
+  .add-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+  }
+  
+  .icon-add {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+  }
+  
+  .loading-spinner {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+  }
+  
+  .no-items {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    font-style: italic;
+  }
+  
+  .exercises-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .exercise-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .exercise-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .exercise-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .exercise-card-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .difficulty-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  
+  .difficulty-badge.începător {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+  }
+  
+  .difficulty-badge.intermediar {
+    background-color: #fff8e1;
+    color: #f57f17;
+  }
+  
+  .difficulty-badge.avansat {
+    background-color: #ffebee;
+    color: #c62828;
+  }
+  
+  .exercise-card-image {
+    height: 180px;
+    overflow: hidden;
+  }
+  
+  .exercise-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .exercise-card:hover .exercise-card-image img {
+    transform: scale(1.05);
+  }
+  
+  .placeholder-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    color: #aaa;
+    font-style: italic;
+  }
+  
+  .exercise-card-details {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .detail-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .detail-label {
+    font-weight: 600;
+    color: #555;
+    width: 80px;
+    font-size: 0.9rem;
+  }
+  
+  .detail-value {
+    color: #333;
+    font-size: 0.9rem;
+  }
+  
+  .exercise-card-actions {
+    display: flex;
+    padding: 1rem;
+    gap: 0.5rem;
+    border-top: 1px solid #f0f0f0;
+  }
+  
+  .preview-button, .edit-button, .delete-button, .add-to-workout-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .preview-button {
+    background-color: #e3f2fd;
+    color: #1976d2;
+  }
+  
+  .preview-button:hover {
+    background-color: #bbdefb;
+  }
+  
+  .edit-button {
+    background-color: #f5f5f5;
+    color: #555;
+  }
+  
+  .edit-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .delete-button {
+    background-color: #ffebee;
+    color: #d32f2f;
+  }
+  
+  .delete-button:hover {
+    background-color: #ffcdd2;
+  }
+  
+  .add-to-workout-button {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .add-to-workout-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Stiluri pentru formular */
+  .exercise-form {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+  
+  .exercise-form h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+    flex: 1;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .required {
+    color: #e53935;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.95rem;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .cancel-button, .save-button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .cancel-button {
+    background-color: #f5f5f5;
+    color: #555;
+  }
+  
+  .cancel-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .save-button {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .save-button:hover {
+    background-color: #45a049;
+  }
+  
+  .cancel-button:disabled,
+  .save-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .form-row {
+      flex-direction: column;
+      gap: 0;
+    }
+    
+    .exercises-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .search-filter-bar {
+      flex-direction: column;
+    }
+    
+    .search-input, .filter-dropdown {
+      width: 100%;
+    }
+    
+    .form-actions {
+      flex-direction: column-reverse;
+    }
+    
+    .cancel-button, .save-button {
+      width: 100%;
+    }
+  }

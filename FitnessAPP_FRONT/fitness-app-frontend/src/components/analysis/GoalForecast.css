@@ -1,0 +1,200 @@
+.goal-forecast {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .goal-forecast h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-size: 1.3rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .goal-forecast h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: #444;
+    font-size: 1.1rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .goal-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .goal-metrics {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .goal-metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .goal-metric.highlight {
+    background-color: #e8f5e9;
+    border-left: 3px solid #4caf50;
+  }
+  
+  .metric-value {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.3rem;
+  }
+  
+  .metric-label {
+    font-size: 0.85rem;
+    color: #666;
+  }
+  
+  .goal-description {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .goal-description p {
+    margin: 0;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  .forecast-chart {
+    margin: 2rem 0;
+  }
+  
+  .calories-plan {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+  }
+  
+  .calories-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+  
+  .calorie-metric {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 150px;
+    padding: 0.8rem;
+    background-color: white;
+    border-radius: 6px;
+    text-align: center;
+  }
+  
+  .calorie-metric.highlight {
+    background-color: #e8f5e9;
+    border-left: 3px solid #4caf50;
+  }
+  
+  .calorie-type {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.3rem;
+  }
+  
+  .calorie-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .forecast-tips {
+    margin: 1.5rem 0;
+  }
+  
+  .forecast-tips ul {
+    padding-left: 1.5rem;
+    margin: 0;
+  }
+  
+  .forecast-tips li {
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+    color: #555;
+  }
+  
+  .forecast-disclaimer {
+    margin-top: 1.5rem;
+    padding: 0.8rem;
+    background-color: #fff8e1;
+    border-radius: 6px;
+    border-left: 3px solid #ffc107;
+  }
+  
+  .forecast-disclaimer p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+  }
+  
+  .no-goal {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .no-goal p {
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+  
+  .no-goal-action {
+    margin-top: 1.5rem;
+  }
+  
+  .set-goal-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .set-goal-button:hover {
+    background-color: #43a047;
+  }
+  
+  @media (max-width: 768px) {
+    .goal-summary {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .goal-metrics {
+      justify-content: center;
+    }
+    
+    .calories-info {
+      flex-direction: column;
+    }
+  }

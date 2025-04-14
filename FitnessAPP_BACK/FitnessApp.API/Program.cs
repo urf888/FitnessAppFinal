@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +18,18 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IProfileService, ProfileService>();
 builder.Services.AddScoped<IProgramService, ProgramService>();
+builder.Services.AddScoped<IExerciseService, ExerciseService>(); 
+builder.Services.AddScoped<IRecipeService, RecipeService>();
+builder.Services.AddScoped<IAIRecipeService, AIRecipeService>();
 builder.Services.AddScoped<JwtService>();
+// Configurarea HttpClient pentru OpenAI
+builder.Services.AddHttpClient<IOpenAIService, OpenAIService>();
+
+// Înregistrarea serviciilor
+builder.Services.AddScoped<IOpenAIService, OpenAIService>();
+builder.Services.AddScoped<IRecommendationService, RecommendationService>();
+// Înregistrăm noul serviciu pentru recomandări de mese
+builder.Services.AddScoped<IMealRecommendationService, MealRecommendationService>();
 
 // Configurare autentificare JWT
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -48,7 +61,12 @@ builder.Services.AddCors(options =>
 });
 
 // Adăugăm controlere
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        // Configurare pentru a gestiona referințele ciclice în JSON
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    });
 
 // Configurăm Swagger cu suport pentru JWT
 builder.Services.AddEndpointsApiExplorer();
@@ -87,6 +105,7 @@ var app = builder.Build();
 // Configurăm pipeline-ul HTTP
 if (app.Environment.IsDevelopment())
 {
+    await RecipeSeedData.SeedRecipesAsync(app.Services);
     app.UseSwagger();
     app.UseSwaggerUI(c => 
     {
@@ -95,6 +114,57 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty;
     });
 }
+
+// Creăm directoarele pentru imagini dacă nu există
+var wwwrootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+if (!Directory.Exists(wwwrootPath))
+{
+    Directory.CreateDirectory(wwwrootPath);
+}
+
+var imagesPath = Path.Combine(wwwrootPath, "images");
+if (!Directory.Exists(imagesPath))
+{
+    Directory.CreateDirectory(imagesPath);
+}
+
+// Creăm directorul pentru imagini placeholders
+var placeholdersPath = Path.Combine(imagesPath, "placeholders");
+if (!Directory.Exists(placeholdersPath))
+{
+    Directory.CreateDirectory(placeholdersPath);
+}
+
+// Creăm directorul pentru imagini programe
+var programsPath = Path.Combine(imagesPath, "programs");
+if (!Directory.Exists(programsPath))
+{
+    Directory.CreateDirectory(programsPath);
+}
+
+// Creăm directorul pentru imagini rețete
+var recipeImagesPath = Path.Combine(imagesPath, "recipe-types");
+if (!Directory.Exists(recipeImagesPath))
+{
+    Directory.CreateDirectory(recipeImagesPath);
+}
+
+// Adăugare middleware pentru servirea fișierelor statice
+app.UseStaticFiles(); // Această linie este crucială pentru servirea imaginilor
+
+// Permite servirea fișierelor direct din folderul wwwroot
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(wwwrootPath),
+    RequestPath = ""
+});
+
+// Configurare pentru a permite servirea imaginilor direct cu calea /images/...
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(imagesPath),
+    RequestPath = "/images"
+});
 
 app.UseHttpsRedirection();
 app.UseCors("AllowFrontend");

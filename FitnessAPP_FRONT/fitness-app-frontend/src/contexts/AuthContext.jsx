@@ -5,8 +5,9 @@ import {
   registerUser as apiRegisterUser, 
   logoutUser as apiLogoutUser, 
   isUserLoggedIn, 
-  getCurrentUser 
-} from '../api/authService';
+  getCurrentUser,
+  getToken // Noua funcție adăugată
+} from '../api/authService.jsx';
 
 // Creăm contextul de autentificare
 export const AuthContext = createContext();
@@ -21,6 +22,7 @@ export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [token, setToken] = useState(''); // Adăugăm token în state
 
   // La încărcarea componentei, verificăm dacă utilizatorul este deja autentificat
   useEffect(() => {
@@ -28,6 +30,8 @@ export const AuthProvider = ({ children }) => {
       if (isUserLoggedIn()) {
         setCurrentUser(getCurrentUser());
         setIsLoggedIn(true);
+        // Setăm și token-ul
+        setToken(getToken());
       }
       setIsLoading(false);
     };
@@ -41,6 +45,8 @@ export const AuthProvider = ({ children }) => {
       const userData = await apiLoginUser(email, password);
       setCurrentUser(userData.user);
       setIsLoggedIn(true);
+      // Setăm token-ul
+      setToken(userData.token);
       return userData;
     } catch (error) {
       throw error;
@@ -53,6 +59,8 @@ export const AuthProvider = ({ children }) => {
       const userData = await apiRegisterUser(username, email, password);
       setCurrentUser(userData.user);
       setIsLoggedIn(true);
+      // Setăm token-ul
+      setToken(userData.token);
       return userData;
     } catch (error) {
       throw error;
@@ -64,12 +72,14 @@ export const AuthProvider = ({ children }) => {
     apiLogoutUser();
     setCurrentUser(null);
     setIsLoggedIn(false);
+    setToken(''); // Resetăm token-ul
   };
 
   const value = {
     currentUser,
     isLoggedIn,
     isLoading,
+    token, // Expunem token-ul în context
     login,
     register,
     logout
