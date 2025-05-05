@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iDaNRbKPQ6t0oyeaJ04vzrevK5PKE3HrIDPGWfBnvOs=",
+  "Hash": "DsdUawq5rps3eHGq2lB0gYAQKPtqG8092uHZXuXmiYw=",
   "Source": "FitnessApp.API",
   "BasePath": "_content/FitnessApp.API",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "FitnessApp.API\\wwwroot",
       "Source": "FitnessApp.API",
-      "ContentRoot": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
       "BasePath": "_content/FitnessApp.API",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholder.jpg",
+      "Identity": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholder.jpg",
       "SourceId": "FitnessApp.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
       "BasePath": "_content/FitnessApp.API",
       "RelativePath": "images/placeholder.jpg",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\images\\placeholder.jpg"
     },
     {
-      "Identity": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholders\\default-program.jpg",
+      "Identity": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholders\\default-program.jpg",
       "SourceId": "FitnessApp.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
       "BasePath": "_content/FitnessApp.API",
       "RelativePath": "images/placeholders/default-program.jpg",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot\\images\\placeholders\\default-program.jpg"
     },
     {
-      "Identity": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholders\\female-weight-loss.jpg",
+      "Identity": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholders\\female-weight-loss.jpg",
       "SourceId": "FitnessApp.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
       "BasePath": "_content/FitnessApp.API",
       "RelativePath": "images/placeholders/female-weight-loss.jpg",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\images\\placeholders\\female-weight-loss.jpg"
     },
     {
-      "Identity": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholders\\general-fitness.jpg",
+      "Identity": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholders\\general-fitness.jpg",
       "SourceId": "FitnessApp.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
       "BasePath": "_content/FitnessApp.API",
       "RelativePath": "images/placeholders/general-fitness.jpg",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\images\\placeholders\\general-fitness.jpg"
     },
     {
-      "Identity": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholders\\male-muscle-building.jpg",
+      "Identity": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholders\\male-muscle-building.jpg",
       "SourceId": "FitnessApp.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
       "BasePath": "_content/FitnessApp.API",
       "RelativePath": "images/placeholders/male-muscle-building.jpg",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\images\\placeholders\\male-muscle-building.jpg"
     },
     {
-      "Identity": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholders\\placeholder.jpg",
+      "Identity": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\placeholders\\placeholder.jpg",
       "SourceId": "FitnessApp.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
       "BasePath": "_content/FitnessApp.API",
       "RelativePath": "images/placeholders/placeholder.jpg",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\images\\placeholders\\placeholder.jpg"
     },
     {
-      "Identity": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\programs\\default-program.jpg",
+      "Identity": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\programs\\default-program.jpg",
       "SourceId": "FitnessApp.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
       "BasePath": "_content/FitnessApp.API",
       "RelativePath": "images/programs/default-program.jpg",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\images\\programs\\default-program.jpg"
     },
     {
-      "Identity": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\programs\\female-weight-loss.jpg",
+      "Identity": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\programs\\female-weight-loss.jpg",
       "SourceId": "FitnessApp.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
       "BasePath": "_content/FitnessApp.API",
       "RelativePath": "images/programs/female-weight-loss.jpg",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\images\\programs\\female-weight-loss.jpg"
     },
     {
-      "Identity": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\programs\\general-fitness.jpg",
+      "Identity": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\programs\\general-fitness.jpg",
       "SourceId": "FitnessApp.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
       "BasePath": "_content/FitnessApp.API",
       "RelativePath": "images/programs/general-fitness.jpg",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\images\\programs\\general-fitness.jpg"
     },
     {
-      "Identity": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\programs\\male-muscle-building.jpg",
+      "Identity": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\images\\programs\\male-muscle-building.jpg",
       "SourceId": "FitnessApp.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
       "BasePath": "_content/FitnessApp.API",
       "RelativePath": "images/programs/male-muscle-building.jpg",
       "AssetKind": "All",
@@ -207,10 +207,10 @@
       "OriginalItemSpec": "wwwroot\\images\\programs\\male-muscle-building.jpg"
     },
     {
-      "Identity": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\uploads\\0d2dc64b-fc7a-46c2-8941-576d3ad5194c.jpg",
+      "Identity": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\uploads\\0d2dc64b-fc7a-46c2-8941-576d3ad5194c.jpg",
       "SourceId": "FitnessApp.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
       "BasePath": "_content/FitnessApp.API",
       "RelativePath": "uploads/0d2dc64b-fc7a-46c2-8941-576d3ad5194c.jpg",
       "AssetKind": "All",
@@ -226,10 +226,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\0d2dc64b-fc7a-46c2-8941-576d3ad5194c.jpg"
     },
     {
-      "Identity": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\uploads\\c7a7a1a8-bc1e-4af2-ab8a-fefc581b93aa.jpg",
+      "Identity": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\uploads\\c7a7a1a8-bc1e-4af2-ab8a-fefc581b93aa.jpg",
       "SourceId": "FitnessApp.API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ptudo\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\ptudo\\fitnessbackup\\FitnessAPP\\FitnessAPP_BACK\\FitnessApp.API\\wwwroot\\",
       "BasePath": "_content/FitnessApp.API",
       "RelativePath": "uploads/c7a7a1a8-bc1e-4af2-ab8a-fefc581b93aa.jpg",
       "AssetKind": "All",
