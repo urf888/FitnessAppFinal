@@ -1,54 +1,161 @@
-.macronutrient-chart {
-    width: 100%;
-    height: 250px;
+/* MacronutrientChart.css - Stiluri îmbunătățite */
+.macronutrient-chart-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.legend-color {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.legend-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.legend-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.legend-value {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Tooltip styles */
+.macro-tooltip {
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #eee;
+  max-width: 250px;
+}
+
+.tooltip-header {
+  font-weight: 600;
+  color: #333;
+  padding-bottom: 5px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+}
+
+.tooltip-content {
+  font-size: 0.9rem;
+}
+
+.tooltip-value {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.tooltip-grams {
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.tooltip-info {
+  color: #777;
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* Macro explanation section */
+.macros-explanation {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.macro-info {
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.macro-info h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.macro-info h4::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.macro-info p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.macro-info.protein {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.macro-info.protein h4::before {
+  background-color: #4CAF50;
+}
+
+.macro-info.carbs {
+  background-color: rgba(33, 150, 243, 0.1);
+}
+
+.macro-info.carbs h4::before {
+  background-color: #2196F3;
+}
+
+.macro-info.fat {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.macro-info.fat h4::before {
+  background-color: #FFC107;
+}
+
+@media (max-width: 768px) {
+  .macros-explanation {
+    grid-template-columns: 1fr;
   }
   
-  .macro-chart-tooltip {
-    background-color: white;
-    padding: 10px;
-    border-radius: 4px;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
-    border: 1px solid #eee;
-  }
-  
-  .tooltip-label {
-    font-weight: 600;
-    color: #333;
-    margin: 0 0 5px 0;
-    font-size: 0.9rem;
-  }
-  
-  .tooltip-value {
-    color: #555;
-    margin: 0;
-    font-size: 0.9rem;
-  }
-  
-  .macro-chart-legend {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .legend-item {
-    display: flex;
+  .chart-legend {
+    flex-direction: column;
     align-items: center;
-    font-size: 0.85rem;
-    color: #666;
   }
-  
-  .legend-color {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-right: 5px;
-  }
-  
-  @media (max-width: 768px) {
-    .macronutrient-chart {
-      height: 200px;
-    }
-  }
+}

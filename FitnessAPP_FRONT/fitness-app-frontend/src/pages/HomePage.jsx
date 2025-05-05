@@ -76,7 +76,7 @@ const HomePage = () => {
           {/* Card pentru Rețete */}
           <div 
             className="feature-card"
-            onClick={() => navigate(isLoggedIn ? '/recipes-2' : '/login')}
+            onClick={() => navigate(isLoggedIn ? '/recipes' : '/login')}
           >
             <img 
               src={imagesPath.recipes} 

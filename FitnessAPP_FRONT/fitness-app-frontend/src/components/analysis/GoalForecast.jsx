@@ -1,7 +1,9 @@
+// GoalForecast.jsx - Varianta îmbunătățită cu AI
 import React, { useState, useEffect } from 'react';
 import { Line } from 'recharts';
 import { LineChart, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import './GoalForecast.css';
+import SmartCalorieRecommendation from './SmartCalorieRecommendation';
 
 const GoalForecast = ({ profile }) => {
   const [forecastData, setForecastData] = useState({
@@ -16,6 +18,8 @@ const GoalForecast = ({ profile }) => {
       deficit: 0
     }
   });
+  
+  const [showAIRecommendation, setShowAIRecommendation] = useState(false);
   
   useEffect(() => {
     if (profile && profile.weightGoal) {
@@ -177,6 +181,10 @@ const GoalForecast = ({ profile }) => {
     });
   };
   
+  const toggleAIRecommendation = () => {
+    setShowAIRecommendation(!showAIRecommendation);
+  };
+  
   if (!profile || !profile.weightGoal) {
     return (
       <div className="goal-forecast no-goal">
@@ -205,108 +213,132 @@ const GoalForecast = ({ profile }) => {
   const objectiveType = isWeightLoss ? 'slăbire' : 'creștere în greutate';
   
   return (
-    <div className="goal-forecast">
-      <h3>Prognoză personalizată pentru atingerea obiectivului</h3>
-      
-      <div className="goal-summary">
-        <div className="goal-metrics">
-          <div className="goal-metric">
-            <span className="metric-value">{weeks}</span>
-            <span className="metric-label">săptămâni</span>
+    <>
+      <div className="goal-forecast">
+        <h3>Prognoză personalizată pentru atingerea obiectivului</h3>
+        
+        <div className="goal-summary">
+          <div className="goal-metrics">
+            <div className="goal-metric">
+              <span className="metric-value">{weeks}</span>
+              <span className="metric-label">săptămâni</span>
+            </div>
+            <div className="goal-metric highlight">
+              <span className="metric-value">{formatDate(targetDate)}</span>
+              <span className="metric-label">data estimată</span>
+            </div>
+            <div className="goal-metric">
+              <span className="metric-value">{rateInGramsPerWeek}g</span>
+              <span className="metric-label">pe săptămână</span>
+            </div>
           </div>
-          <div className="goal-metric highlight">
-            <span className="metric-value">{formatDate(targetDate)}</span>
-            <span className="metric-label">data estimată</span>
-          </div>
-          <div className="goal-metric">
-            <span className="metric-value">{rateInGramsPerWeek}g</span>
-            <span className="metric-label">pe săptămână</span>
+          
+          <div className="goal-description">
+            <p>
+              Ai stabilit un obiectiv de <strong>{objectiveType}</strong>, 
+              de la <strong>{profile.weight}kg</strong> la <strong>{profile.weightGoal}kg</strong>.
+              Cu un ritm sănătos de {rateInGramsPerWeek}g pe săptămână, poți atinge acest obiectiv 
+              în aproximativ <strong>{weeks} săptămâni</strong>.
+            </p>
           </div>
         </div>
         
-        <div className="goal-description">
+        <div className="forecast-chart">
+          <h4>Proiecția evoluției greutății tale</h4>
+          <ResponsiveContainer width="100%" height={250}>
+            <LineChart
+              data={monthlyData}
+              margin={{ top: 5, right: 20, bottom: 20, left: 10 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="time" />
+              <YAxis 
+                domain={[
+                  Math.min(profile.weight, profile.weightGoal) - 2, 
+                  Math.max(profile.weight, profile.weightGoal) + 2
+                ]} 
+                label={{ value: 'Kg', angle: -90, position: 'insideLeft' }} 
+              />
+              <Tooltip formatter={(value) => [`${value} kg`, 'Greutate']} />
+              <Legend />
+              <Line 
+                type="monotone" 
+                dataKey="weight" 
+                stroke="#8884d8" 
+                activeDot={{ r: 8 }} 
+                name="Greutate estimată"
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+        
+        <div className="calories-plan">
+          <h4>Plan caloric recomandat</h4>
+          <div className="calories-info">
+            <div className="calorie-metric">
+              <span className="calorie-type">Menținere:</span>
+              <span className="calorie-value">{calories.maintenance} kcal/zi</span>
+            </div>
+            <div className="calorie-metric highlight">
+              <span className="calorie-type">Recomandat:</span>
+              <span className="calorie-value">{calories.target} kcal/zi</span>
+            </div>
+            <div className="calorie-metric">
+              <span className="calorie-type">{isWeightLoss ? 'Deficit' : 'Surplus'}:</span>
+              <span className="calorie-value">{calories.adjustment} kcal/zi</span>
+            </div>
+          </div>
+        </div>
+        
+        {/* Buton pentru a afișa/ascunde recomandarea AI */}
+        <div style={{ textAlign: 'center', margin: '20px 0' }}>
+          <button 
+            onClick={toggleAIRecommendation} 
+            className="set-goal-button"
+            style={{ 
+              backgroundColor: showAIRecommendation ? '#673AB7' : '#4CAF50',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '10px'
+            }}
+          >
+            {showAIRecommendation ? 'Ascunde recomandarea AI' : 'Arată recomandarea AI avansată'}
+            <span role="img" aria-label="ai">🤖</span>
+          </button>
+        </div>
+        
+        <div className="forecast-tips">
+          <h4>Sfaturi pentru atingerea obiectivului</h4>
+          {isWeightLoss ? (
+            <ul>
+              <li><strong>Alimentație:</strong> Concentrează-te pe alimente bogate în proteine și fibre care te ajută să te simți sătul mai mult timp.</li>
+              <li><strong>Exerciții:</strong> Combină antrenamentele cardio cu cele de forță pentru a maximiza arderea caloriilor și a menține masa musculară.</li>
+              <li><strong>Hidratare:</strong> Bea suficientă apă (minim 2L/zi) - adeseori senzația de foame poate fi confundată cu cea de sete.</li>
+              <li><strong>Constanță:</strong> Rămâi constant, chiar și o pierdere mică și susținută este mai benefică decât fluctuații mari de greutate.</li>
+            </ul>
+          ) : (
+            <ul>
+              <li><strong>Alimentație:</strong> Crește aportul caloric cu alimente bogate în nutrienți și proteine de calitate pentru a susține creșterea musculară.</li>
+              <li><strong>Exerciții:</strong> Focusează-te pe antrenamente de forță progresive pentru a stimula creșterea musculară.</li>
+              <li><strong>Odihnă:</strong> Asigură-te că ai suficient somn și perioade de recuperare între antrenamente pentru a permite mușchilor să se dezvolte.</li>
+              <li><strong>Constanță:</strong> Creșterea în greutate sănătoasă este un proces gradual - urmărește să câștigi predominant masă musculară, nu grăsime.</li>
+            </ul>
+          )}
+        </div>
+        
+        <div className="forecast-disclaimer">
           <p>
-            Ai stabilit un obiectiv de <strong>{objectiveType}</strong>, 
-            de la <strong>{profile.weight}kg</strong> la <strong>{profile.weightGoal}kg</strong>.
-            Cu un ritm sănătos de {rateInGramsPerWeek}g pe săptămână, poți atinge acest obiectiv 
-            în aproximativ <strong>{weeks} săptămâni</strong>.
+            <strong>Notă:</strong> Aceste estimări sunt orientative și pot varia în funcție de mai mulți 
+            factori individuali precum metabolismul, genetica, și aderența la planul de alimentație și antrenament.
           </p>
         </div>
       </div>
       
-      <div className="forecast-chart">
-        <h4>Proiecția evoluției greutății tale</h4>
-        <ResponsiveContainer width="100%" height={250}>
-          <LineChart
-            data={monthlyData}
-            margin={{ top: 5, right: 20, bottom: 20, left: 10 }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="time" />
-            <YAxis 
-              domain={[
-                Math.min(profile.weight, profile.weightGoal) - 2, 
-                Math.max(profile.weight, profile.weightGoal) + 2
-              ]} 
-              label={{ value: 'Kg', angle: -90, position: 'insideLeft' }} 
-            />
-            <Tooltip formatter={(value) => [`${value} kg`, 'Greutate']} />
-            <Legend />
-            <Line 
-              type="monotone" 
-              dataKey="weight" 
-              stroke="#8884d8" 
-              activeDot={{ r: 8 }} 
-              name="Greutate estimată"
-            />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
-      
-      <div className="calories-plan">
-        <h4>Plan caloric recomandat</h4>
-        <div className="calories-info">
-          <div className="calorie-metric">
-            <span className="calorie-type">Menținere:</span>
-            <span className="calorie-value">{calories.maintenance} kcal/zi</span>
-          </div>
-          <div className="calorie-metric highlight">
-            <span className="calorie-type">Recomandat:</span>
-            <span className="calorie-value">{calories.target} kcal/zi</span>
-          </div>
-          <div className="calorie-metric">
-            <span className="calorie-type">{isWeightLoss ? 'Deficit' : 'Surplus'}:</span>
-            <span className="calorie-value">{calories.adjustment} kcal/zi</span>
-          </div>
-        </div>
-      </div>
-      
-      <div className="forecast-tips">
-        <h4>Sfaturi pentru atingerea obiectivului</h4>
-        {isWeightLoss ? (
-          <ul>
-            <li><strong>Alimentație:</strong> Concentrează-te pe alimente bogate în proteine și fibre care te ajută să te simți sătul mai mult timp.</li>
-            <li><strong>Exerciții:</strong> Combină antrenamentele cardio cu cele de forță pentru a maximiza arderea caloriilor și a menține masa musculară.</li>
-            <li><strong>Hidratare:</strong> Bea suficientă apă (minim 2L/zi) - adeseori senzația de foame poate fi confundată cu cea de sete.</li>
-            <li><strong>Constanță:</strong> Rămâi constant, chiar și o pierdere mică și susținută este mai benefică decât fluctuații mari de greutate.</li>
-          </ul>
-        ) : (
-          <ul>
-            <li><strong>Alimentație:</strong> Crește aportul caloric cu alimente bogate în nutrienți și proteine de calitate pentru a susține creșterea musculară.</li>
-            <li><strong>Exerciții:</strong> Focusează-te pe antrenamente de forță progresive pentru a stimula creșterea musculară.</li>
-            <li><strong>Odihnă:</strong> Asigură-te că ai suficient somn și perioade de recuperare între antrenamente pentru a permite mușchilor să se dezvolte.</li>
-            <li><strong>Constanță:</strong> Creșterea în greutate sănătoasă este un proces gradual - urmărește să câștigi predominant masă musculară, nu grăsime.</li>
-          </ul>
-        )}
-      </div>
-      
-      <div className="forecast-disclaimer">
-        <p>
-          <strong>Notă:</strong> Aceste estimări sunt orientative și pot varia în funcție de mai mulți 
-          factori individuali precum metabolismul, genetica, și aderența la planul de alimentație și antrenament.
-        </p>
-      </div>
-    </div>
+      {/* Secțiunea de recomandare AI care poate fi afișată/ascunsă */}
+      {showAIRecommendation && (
+        <SmartCalorieRecommendation profile={profile} />
+      )}
+    </>
   );
 };
 

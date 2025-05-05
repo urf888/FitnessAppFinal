@@ -76,9 +76,17 @@ namespace FitnessApp.API.Models.DTOs
         public int PrepTime { get; set; }
         public int Calories { get; set; }
         public int Protein { get; set; }
+        public int Carbs { get; set; }
+        public int Fat { get; set; }
+        public int Fiber { get; set; }
+        public int Sugar { get; set; }
         public string DietType { get; set; } = string.Empty;
         public string Objective { get; set; } = string.Empty;
         public string ProteinContent { get; set; } = string.Empty;
+
+        public List<string> Ingredients { get; set; } = new List<string>();
+        public List<string> Steps { get; set; } = new List<string>();
+        public List<string> Tips { get; set; } = new List<string>();
         
         // Adăugăm proprietate pentru a marca dacă rețeta este favorită
         public bool IsFavorite { get; set; } = false;

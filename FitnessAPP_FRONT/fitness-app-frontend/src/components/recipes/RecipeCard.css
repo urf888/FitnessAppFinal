@@ -8,7 +8,9 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  z-index: 1; /* Valoare mai mică pentru z-index */
+  z-index: 1;
+  cursor: pointer;
+  width: 100%;
 }
 
 .recipe-card:hover {
@@ -58,25 +60,26 @@
   font-style: italic;
 }
 
-.recipe-link {
-  text-decoration: none;
-  color: inherit;
-}
-
 .recipe-title {
   padding: 16px 16px 8px;
   margin: 0;
-  color: #1f2937;
-  font-size: 1.2rem;
+  color: #1f2937; /* Text închis pe fundal deschis */
+  font-size: 1.1rem;
   font-weight: 600;
   line-height: 1.3;
   min-height: 46px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
 }
 
 .recipe-description {
   padding: 0 16px;
   margin: 0 0 12px;
-  color: #4b5563;
+  color: #4b5563; /* Text gri închis pe fundal deschis */
   font-size: 0.9rem;
   line-height: 1.5;
   flex-grow: 1;
@@ -92,13 +95,14 @@
   padding: 12px 16px;
   border-top: 1px solid #e5e7eb;
   background-color: #f9fafb;
+  margin-top: auto; /* Asigură că meta-informațiile sunt plasate la baza cardului */
 }
 
 .recipe-meta-item {
   display: flex;
   align-items: center;
   font-size: 0.8rem;
-  color: #6b7280;
+  color: #4b5563; /* Text închis pentru contrast bun */
 }
 
 .meta-icon {
@@ -120,6 +124,7 @@
   border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .diet-tag {
@@ -217,7 +222,7 @@
   justify-content: center;
   font-size: 1.2rem;
   color: #4b5563;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: all 0.2s;
   z-index: 2; /* Un z-index mai mare decât cardul dar mai mic decât navbar-ul */
 }
@@ -228,13 +233,120 @@
   color: #1f2937;
 }
 
+/* Stiluri specifice pentru cardurile din pagina de profil */
+.profile-page .recipe-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.profile-page .recipe-title {
+  color: #fff;
+}
+
+.profile-page .recipe-description {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.profile-page .recipe-meta {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile-page .recipe-meta-item {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.profile-page .recipe-tags {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Ajustări pentru centrarea conținutului în carduri */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.recipe-card-wrapper {
+  height: 100%;
+  display: flex;
+}
+
+/* Ajustări pentru centrarea cardurilor în pagina de profil */
+.profile-page .recipes-grid {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  justify-items: center;
+}
+
+.profile-page .recipe-card-wrapper {
+  width: 100%;
+  max-width: 350px;
+}
+
+/* Corectăm problema modalului în pagina de profil */
+.recipe-detail-modal {
+  color: #333; /* Asigură culoare text închisă pentru modal */
+}
+
+.recipe-detail-modal .recipe-title,
+.recipe-detail-modal h2,
+.recipe-detail-modal h3,
+.recipe-detail-modal h4,
+.recipe-detail-modal p,
+.recipe-detail-modal li,
+.recipe-detail-modal span {
+  color: #333; /* Asigură text închis pentru toate elementele din modal */
+}
+
+.recipe-detail-modal .meta-value,
+.recipe-detail-modal .meta-label,
+.recipe-detail-modal .meta-item {
+  color: #555; /* Culoare text pentru elementele meta */
+}
+
 /* Responsive design */
 @media screen and (max-width: 768px) {
   .recipe-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    min-height: 42px;
   }
   
   .recipe-description {
     font-size: 0.85rem;
   }
+  
+  .recipes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  
+  .profile-page .recipes-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .profile-page .recipe-card-wrapper {
+    max-width: 100%;
+  }
+}
+
+/* Adăugăm stiluri pentru a corecta afișarea cardurilor 
+   în pagina principală de rețete */
+.recipes-page .recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.recipes-page .recipe-card-wrapper {
+  height: 100%;
+  display: flex;
+}
+
+.profile-page .recipe-card.vegan-card .recipe-title,
+.profile-page .diet-tag.vegan + .recipe-title {
+  color: #ffffff !important;
+}
+.recipe-card .recipe-title {
+  color: #1f2937 !important; /* Culoare închisă pentru text pe fundaluri deschise */
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.2); /* Umbră subtilă pentru lizibilitate */
 }

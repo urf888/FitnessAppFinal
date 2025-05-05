@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './RecipeCard.css';
+import './RecipeCardAI.css';
 
 const RecipeCard = ({ recipe }) => {
   const [parsedRecipe, setParsedRecipe] = useState({

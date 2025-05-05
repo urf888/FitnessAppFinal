@@ -1,119 +1,490 @@
 .profile-page {
-    min-height: 100vh;
-    background-color: #f7f8fc;
-    padding-top: 60px; /* Spațiu pentru navbar */
-  }
+  min-height: 100vh;
+  background-color: #1e1e2f; /* Background închis */
+  padding-top: 60px; /* Spațiu pentru navbar */
+  color: #fff; /* Text alb pentru contrast */
+}
+
+.profile-content {
+  max-width: 1000px; /* Lărgim puțin conținutul pentru a folosi mai bine spațiul */
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.profile-header h1 {
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.profile-subtitle {
+  color: #aaa;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+/* Layout cu două coloane pentru informații profil și recomandări */
+.profile-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.profile-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+.user-info {
+  margin-bottom: 1.5rem;
+  background-color: #252540;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.user-info-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-details h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.user-details p {
+  margin: 0.3rem 0 0;
+  color: #aaa;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  font-style: italic;
+  color: #aaa;
+}
+
+.error-message {
+  background-color: rgba(244, 67, 54, 0.15);
+  color: #ff5252;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #ff5252;
+}
+
+.success-message {
+  background-color: rgba(76, 175, 80, 0.15);
+  color: #81c784;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #4CAF50;
+}
+
+.no-profile-message {
+  background-color: rgba(255, 193, 7, 0.15);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #ffc107;
+  color: #ffecb3;
+}
+
+.no-profile-message p {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* Stiluri pentru secțiunea de recomandări calorice */
+.calories-recommendation {
+  background-color: #252540;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.calories-recommendation h2 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  color: #fff;
+  font-size: 1.3rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calories-recommendation h3 {
+  margin-top: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: #ddd;
+  font-size: 1.1rem;
+}
+
+.metrics-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.metric-card {
+  flex: 1;
+  min-width: 100px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.metric-title {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-bottom: 0.5rem;
+}
+
+.metric-value {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.metric-subtitle {
+  font-size: 0.8rem;
+  color: #bbb;
+}
+
+.highlight-card {
+  background-color: rgba(76, 175, 80, 0.1);
+  border-left: 3px solid #4caf50;
+}
+
+.bmi-card .metric-subtitle {
+  font-weight: 600;
+}
+
+.macros-container {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.macro-item {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.macro-item.protein {
+  background-color: rgba(76, 175, 80, 0.1);
+  border-left: 3px solid #4CAF50;
+}
+
+.macro-item.carbs {
+  background-color: rgba(33, 150, 243, 0.1);
+  border-left: 3px solid #2196F3;
+}
+
+.macro-item.fat {
+  background-color: rgba(255, 193, 7, 0.1);
+  border-left: 3px solid #FFC107;
+}
+
+.macro-name {
+  font-weight: 600;
+  color: #ddd;
+  margin-bottom: 0.5rem;
+}
+
+.macro-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.macro-percentage {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 0.2rem;
+}
+
+.calories-loading {
+  text-align: center;
+  padding: 1rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.calories-error {
+  color: #ff5252;
+  padding: 1rem;
+  background-color: rgba(244, 67, 54, 0.1);
+  border-radius: 8px;
+  margin: 0.8rem 0;
+}
+
+/* Stiluri pentru secțiunea de rețete recomandate */
+.recommended-recipes {
+  background-color: #252540;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.recommended-recipes h2 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  color: #fff;
+  font-size: 1.3rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.recipes-description {
+  color: #aaa;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  justify-items: center;
+}
+
+.recipe-card-wrapper {
+  height: 100%;
+  width: 100%;
+  max-width: 320px;
+}
+
+/* Stiluri speciale pentru cardurile de rețete în contexul profilului */
+.profile-page .recipe-card {
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.02);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-page .recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Fix pentru text în carduri */
+.profile-page .recipe-card .recipe-title,
+.profile-page .recipes-grid .recipe-card .recipe-title,
+.profile-page .recommended-recipes .recipe-card .recipe-title {
+  color: #ffffff !important; /* Alb pentru contrast maxim pe fundaluri închise */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important; /* Umbră pentru lizibilitate */
+  font-weight: 600 !important;
+  padding-top: 12px !important; /* Mărește padding-ul de sus */
+  padding-bottom: 4px !important; /* Reduce padding-ul de jos */
+  margin-top: -5px !important; /* Mutăm puțin în sus cu margine negativă */
+  margin-bottom: 8px !important; /* Asigurăm spațierea adecvată până la descriere */
+  min-height: 42px !important; /* Înălțime minimă pentru consistență */
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important; /* Limitează la 2 rânduri */
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  font-size: 1rem !important; /* Ajustează mărimea fontului */
+  line-height: 1.3 !important; /* Ajustează înălțimea liniei */
+}
+
+.profile-page .recipe-card .recipe-description,
+.profile-page .recipes-grid .recipe-card .recipe-description,
+.profile-page .recommended-recipes .recipe-card .recipe-description {
+  color: rgba(255, 255, 255, 0.8) !important; /* Alb cu transparență pentru descriere */
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) !important; /* Umbră subtilă */
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  max-height: 56px !important; /* Limitează înălțimea descrierii */
+  -webkit-line-clamp: 2 !important; /* Limitează la 2 rânduri */
+}
+
+/* Fix pentru meta-informații (calorii, timp preparare, etc.) */
+.profile-page .recipe-card .recipe-meta-item,
+.profile-page .recipes-grid .recipe-card .recipe-meta-item,
+.profile-page .recommended-recipes .recipe-card .recipe-meta-item {
+  color: rgba(255, 255, 255, 0.85) !important; /* Text aproape alb */
   
-  .profile-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
+}
+
+/* Asigură background-ul corect pentru meta-informații */
+.profile-page .recipe-card .recipe-meta {
+  background-color: rgba(0, 0, 0, 0.3) !important; /* Fundal întunecat semi-transparent */
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  margin-top: auto !important; /* Împinge secțiunea la baza cardului */
   
-  .profile-header {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .profile-header h1 {
-    margin-bottom: 0.5rem;
-    color: #333;
-  }
-  
-  .profile-subtitle {
-    color: #666;
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .user-info {
-    margin-bottom: 2rem;
-  }
-  
-  .user-info-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .avatar {
-    width: 70px;
-    height: 70px;
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    font-weight: bold;
-  }
-  
-  .user-details {
-    display: flex;
+}
+
+/* Asigură-te că iconițele meta sunt vizibile */
+.profile-page .recipe-card .meta-icon {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Gradient pentru a îmbunătăți lizibilitatea peste imagine */
+.profile-page .recipe-card .recipe-image-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0) 60%);
+  pointer-events: none;
+}
+
+/* Fix pentru taguri în carduri */
+.profile-page .recipe-card .recipe-tag {
+  color: #333333 !important; /* Text închis pentru contrast pe taguri */
+  font-weight: 600 !important;
+}
+
+/* Fix special pentru cardurile cu dieta vegană/vegetariană */
+.profile-page .recipe-card.vegan-card .recipe-title,
+.profile-page .recipe-card.vegetarian-card .recipe-title,
+.profile-page .recipe-card.vegan .recipe-title,
+.profile-page .recipe-card.vegetarian .recipe-title {
+  color: #ffffff !important;
+}
+
+.recipes-loading {
+  text-align: center;
+  padding: 2rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.no-recipes {
+  text-align: center;
+  padding: 2rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.all-recipes-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.view-more-recipes {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.view-more-recipes:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+/* Asigură-te că titlul modalului este vizibil după deschidere */
+.modal-overlay .recipe-detail-modal .recipe-title,
+.profile-page .modal-overlay .recipe-detail-modal .recipe-title {
+  color: #333333 !important; /* Culoare închisă pentru textul din modal (pe fundal deschis) */
+  text-shadow: none !important;
+}
+
+/* Stiluri pentru modal */
+.profile-page .modal-overlay .recipe-detail-modal {
+  background-color: white;
+}
+
+.profile-page .modal-overlay .recipe-detail-modal * {
+  color: #444 !important; /* Forțăm culoare închisă implicit pentru tot textul din modal */
+}
+
+.profile-page .modal-overlay .recipe-detail-modal h2,
+.profile-page .modal-overlay .recipe-detail-modal h3,
+.profile-page .modal-overlay .recipe-detail-modal .recipe-title {
+  color: #222 !important; /* Titluri mai închise pentru contrast */
+}
+
+.profile-page .modal-overlay .recipe-detail-modal .meta-label {
+  color: #555 !important; /* Etichete meta cu gri închis */
+}
+
+.profile-page .modal-overlay .recipe-detail-modal .meta-value {
+  color: #333 !important; /* Valori meta cu negru */
+}
+
+/* Media queries pentru ecrane mai mici */
+@media (max-width: 768px) {
+  .profile-layout {
     flex-direction: column;
   }
   
-  .user-details h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    color: #333;
-  }
-  
-  .user-details p {
-    margin: 0.3rem 0 0;
-    color: #666;
-  }
-  
-  .loading {
+  .user-info-header {
+    flex-direction: column;
     text-align: center;
-    padding: 2rem;
-    font-style: italic;
-    color: #666;
+    align-items: center;
   }
   
-  .error-message {
-    background-color: #ffebee;
-    color: #c62828;
-    padding: 1rem;
-    border-radius: 4px;
-    margin-bottom: 1.5rem;
-    border-left: 4px solid #c62828;
+  .macros-container {
+    flex-direction: column;
   }
   
-  .success-message {
-    background-color: #e8f5e9;
-    color: #2e7d32;
-    padding: 1rem;
-    border-radius: 4px;
-    margin-bottom: 1.5rem;
-    border-left: 4px solid #2e7d32;
+  .recipes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-page .recipe-card .recipe-title {
+    font-size: 0.95rem !important;
+    min-height: 40px !important;
   }
   
-  .no-profile-message {
-    background-color: #fff8e1;
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    border-left: 4px solid #ffc107;
+  .profile-page .recipe-card .recipe-description {
+    font-size: 0.85rem !important;
   }
   
-  .no-profile-message p {
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    color: #333;
+  .profile-page .recipe-card-wrapper {
+    max-width: 100%;
   }
-  
-  /* Media queries pentru ecrane mai mici */
-  @media (max-width: 768px) {
-    .profile-content {
-      padding: 1.5rem 0.8rem;
-    }
-    
-    .user-info-header {
-      flex-direction: column;
-      text-align: center;
-    }
-  }
+}

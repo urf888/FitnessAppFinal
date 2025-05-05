@@ -1,199 +1,212 @@
 .recipe-card {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin-bottom: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  color: #2d3748; /* Culoare text de bază pentru tot card-ul */
+}
+
+.recipe-card-placeholder {
+  background-color: #f5f9f7;
+  border-radius: 12px;
+  padding: 3rem;
+  text-align: center;
+  color: #718096;
+  font-size: 1.1rem;
+}
+
+.recipe-card-header {
+  background-color: #30a46c;
+  color: white; /* Text alb pentru header */
+  padding: 1.5rem;
+  position: relative;
+}
+
+.recipe-card-title {
+  font-size: 1.8rem;
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+  text-align: center;
+  color: white; /* Asigură că titlul este alb pe fundalul verde */
+}
+
+.recipe-card-meta {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.recipe-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+  color: white; /* Asigură că textul meta-datelor este alb */
+}
+
+.recipe-card-body {
+  padding: 1.5rem;
+  background-color: white;
+  color: #2d3748; /* Culoare text închis pentru conținut */
+}
+
+.recipe-description {
+  margin-bottom: 1.5rem;
+  color: #4a5568; /* Culoare text închis pentru descriere */
+  line-height: 1.6;
+  font-size: 1.05rem;
+  border-bottom: 1px solid #edf2f7;
+  padding-bottom: 1.5rem;
+}
+
+.recipe-description p {
+  color: #4a5568; /* Asigură că paragrafele au culoarea corectă */
+}
+
+.recipe-nutrition {
+  background-color: #f5f9f7;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.recipe-nutrition h3 {
+  color: #2d3748; /* Culoare închisă pentru titlul secțiunii de nutriție */
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.nutrition-item {
+  text-align: center;
+  background-color: white;
+  padding: 1rem 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.nutrition-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #30a46c; /* Verde pentru valorile nutriționale */
+  margin-bottom: 0.25rem;
+}
+
+.nutrition-label {
+  font-size: 0.85rem;
+  color: #718096; /* Gri pentru etichetele nutriționale */
+}
+
+.recipe-section {
+  margin-bottom: 2rem;
+}
+
+.recipe-section h3 {
+  font-size: 1.3rem;
+  color: #30a46c; /* Verde pentru titlurile secțiunilor */
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f5f9f7;
+}
+
+.ingredients-list, .tips-list {
+  list-style-type: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem 1.5rem;
+  color: #4a5568; /* Asigură că textul ingredientelor este vizibil */
+}
+
+.ingredients-list li, .tips-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #4a5568; /* Repetăm pentru siguranță */
+}
+
+.ingredients-list li::before, .tips-list li::before {
+  content: "•";
+  color: #30a46c;
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
+
+.steps-list {
+  padding-left: 1.5rem;
+  color: #4a5568; /* Asigură că textul pașilor este vizibil */
+}
+
+.steps-list li {
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  position: relative;
+  color: #4a5568; /* Repetăm pentru siguranță */
+}
+
+.steps-list li::marker {
+  color: #30a46c;
+  font-weight: bold;
+}
+
+.no-data {
+  color: #a0aec0;
+  font-style: italic;
+  text-align: center;
+  padding: 1rem;
+  background-color: #f7fafc;
+  border-radius: 8px;
+}
+
+.debug-text {
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  background-color: #edf2f7;
+  color: #718096;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  white-space: normal;
+  overflow-wrap: break-word;
+  display: none; /* Ascundem în producție, dar putem activa pentru debugging */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nutrition-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   
-  .recipe-card-placeholder {
-    background-color: #f5f9f7;
-    border-radius: 12px;
-    padding: 3rem;
-    text-align: center;
-    color: #718096;
-    font-size: 1.1rem;
-  }
-  
-  .recipe-card-header {
-    background-color: #30a46c;
-    color: white;
-    padding: 1.5rem;
-    position: relative;
-  }
-  
-  .recipe-card-title {
-    font-size: 1.8rem;
-    margin: 0 0 1rem 0;
-    line-height: 1.3;
-    text-align: center;
+  .ingredients-list {
+    grid-template-columns: 1fr;
   }
   
   .recipe-card-meta {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 0.5rem;
-  }
-  
-  .recipe-meta-item {
-    display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.95rem;
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 0.4rem 0.8rem;
-    border-radius: 50px;
   }
-  
-  .recipe-card-body {
-    padding: 1.5rem;
-  }
-  
-  .recipe-description {
-    margin-bottom: 1.5rem;
-    color: #4a5568;
-    line-height: 1.6;
-    font-size: 1.05rem;
-    border-bottom: 1px solid #edf2f7;
-    padding-bottom: 1.5rem;
-  }
-  
-  .recipe-nutrition {
-    background-color: #f5f9f7;
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-  }
-  
-  .recipe-nutrition h3 {
-    color: #2d3748;
-    font-size: 1.2rem;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  
+}
+
+@media (max-width: 480px) {
   .nutrition-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    grid-template-columns: 1fr;
   }
   
-  .nutrition-item {
-    text-align: center;
-    background-color: white;
-    padding: 1rem 0.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  }
-  
-  .nutrition-value {
-    display: block;
+  .recipe-card-title {
     font-size: 1.5rem;
-    font-weight: 600;
-    color: #30a46c;
-    margin-bottom: 0.25rem;
   }
-  
-  .nutrition-label {
-    font-size: 0.85rem;
-    color: #718096;
-  }
-  
-  .recipe-section {
-    margin-bottom: 2rem;
-  }
-  
-  .recipe-section h3 {
-    font-size: 1.3rem;
-    color: #30a46c;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #f5f9f7;
-  }
-  
-  .ingredients-list, .tips-list {
-    list-style-type: none;
-    padding-left: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0.75rem 1.5rem;
-  }
-  
-  .ingredients-list li, .tips-list li {
-    position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .ingredients-list li::before, .tips-list li::before {
-    content: "•";
-    color: #30a46c;
-    position: absolute;
-    left: 0;
-    font-size: 1.2rem;
-  }
-  
-  .steps-list {
-    padding-left: 1.5rem;
-  }
-  
-  .steps-list li {
-    margin-bottom: 1rem;
-    padding-left: 0.5rem;
-    position: relative;
-  }
-  
-  .steps-list li::marker {
-    color: #30a46c;
-    font-weight: bold;
-  }
-  
-  .no-data {
-    color: #a0aec0;
-    font-style: italic;
-    text-align: center;
-    padding: 1rem;
-    background-color: #f7fafc;
-    border-radius: 8px;
-  }
-  
-  .debug-text {
-    font-size: 0.8rem;
-    padding: 0.5rem;
-    background-color: #edf2f7;
-    color: #718096;
-    border-radius: 4px;
-    margin-top: 0.5rem;
-    white-space: normal;
-    overflow-wrap: break-word;
-    display: none; /* Ascundem în producție, dar putem activa pentru debugging */
-  }
-  
-  /* Responsive styles */
-  @media (max-width: 768px) {
-    .nutrition-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .ingredients-list {
-      grid-template-columns: 1fr;
-    }
-    
-    .recipe-card-meta {
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .nutrition-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .recipe-card-title {
-      font-size: 1.5rem;
-    }
-  }
+}

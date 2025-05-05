@@ -427,6 +427,6 @@ a:not(.navbar-link):hover {
 .fitness-analysis-page h1:first-of-type {
   font-size: 2rem !important;
   font-weight: 700 !important;
-  color: var(--light-color) !important;
+  color: rgb(13, 255, 0) !important;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important; /* Adaugă un efect de umbră pentru lizibilitate mai bună */
 }

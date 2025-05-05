@@ -9,6 +9,8 @@ namespace FitnessApp.API.Services
         Task<UserProfile?> GetProfileByUserIdAsync(int userId);
         Task<UserProfile> CreateProfileAsync(UserProfile profile);
         Task<UserProfile?> UpdateProfileAsync(int userId, UserProfile profile);
+
+        Task<List<UserProfile>> GetAllProfilesForTrainingAsync();
     }
 
     public class ProfileService : IProfileService
@@ -94,6 +96,20 @@ namespace FitnessApp.API.Services
             {
                 throw new InvalidOperationException($"Eroare la actualizarea profilului: {ex.Message}", ex);
             }
+        }
+        public async Task<List<UserProfile>> GetAllProfilesForTrainingAsync()
+        {
+            // Selectăm doar profilurile care au toate datele necesare
+            var profiles = await _context.UserProfiles
+                .Where(p => p.Age > 0
+                    && p.Height > 0
+                    && p.Weight > 0
+                    && p.WeightGoal > 0
+                    && !string.IsNullOrEmpty(p.Sex)
+                    && !string.IsNullOrEmpty(p.ActivityLevel))
+                .ToListAsync();
+
+            return profiles;
         }
     }
 }

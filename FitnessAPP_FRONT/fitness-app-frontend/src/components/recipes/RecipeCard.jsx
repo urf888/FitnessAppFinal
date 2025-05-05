@@ -1,22 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import recipeService from '../../api/recipeService';
 import './RecipeCard.css';
 
 const RecipeCard = ({ recipe, onFavoriteChange, isAdmin, onEdit, onClick }) => {
   const { isLoggedIn } = useAuth();
-  const [isFavorite, setIsFavorite] = React.useState(recipe.isFavorite || false);
-  const [isToggling, setIsToggling] = React.useState(false);
+  const [isFavorite, setIsFavorite] = useState(recipe.isFavorite || false);
+  const [isToggling, setIsToggling] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   // Adăugăm un useEffect pentru a actualiza starea când proprietatea recipe se schimbă
   useEffect(() => {
     setIsFavorite(recipe.isFavorite || false);
   }, [recipe.isFavorite]);
-
-  // Adăugăm un log pentru a verifica dacă butonul de editare ar trebui să fie vizibil
-  useEffect(() => {
-    console.log('Admin status in RecipeCard:', isAdmin, 'Recipe ID:', recipe.id);
-  }, [isAdmin, recipe.id]);
 
   // Conversia tipului de dietă în text afișabil
   const getDietTypeLabel = (dietType) => {
@@ -24,7 +20,7 @@ const RecipeCard = ({ recipe, onFavoriteChange, isAdmin, onEdit, onClick }) => {
       case 'carnivor': return 'Carnivor';
       case 'vegetarian': return 'Vegetarian';
       case 'vegan': return 'Vegan';
-      default: return dietType;
+      default: return dietType || 'Mix';
     }
   };
 
@@ -34,14 +30,13 @@ const RecipeCard = ({ recipe, onFavoriteChange, isAdmin, onEdit, onClick }) => {
       case 'masă': return 'Masă musculară';
       case 'slăbit': return 'Slăbit';
       case 'fit': return 'Fitness';
-      default: return objective;
+      default: return objective || 'General';
     }
   };
 
-  // Handler pentru editare
+  // Handler pentru editare - disponibil doar pentru admin
   const handleEditClick = (e) => {
     e.stopPropagation(); // Împiedică propagarea către card
-    console.log('Edit button clicked for recipe:', recipe.id);
     if (onEdit) {
       onEdit(recipe);
     }
@@ -60,21 +55,17 @@ const RecipeCard = ({ recipe, onFavoriteChange, isAdmin, onEdit, onClick }) => {
     
     if (!isLoggedIn || isToggling) return;
 
-    console.log('Toggle favorite pentru rețeta:', recipe.id, 'Status actual:', isFavorite);
     setIsToggling(true);
     
     try {
       if (isFavorite) {
-        console.log('Removing from favorites');
         await recipeService.removeFromFavorites(recipe.id);
       } else {
-        console.log('Adding to favorites');
         await recipeService.addToFavorites(recipe.id);
       }
       
       // Actualizăm starea locală
       setIsFavorite(!isFavorite);
-      console.log('New favorite state:', !isFavorite);
       
       // Notificăm componenta părinte despre schimbare
       if (onFavoriteChange) {
@@ -82,24 +73,79 @@ const RecipeCard = ({ recipe, onFavoriteChange, isAdmin, onEdit, onClick }) => {
       }
     } catch (error) {
       console.error('Eroare la actualizarea favoritelor:', error);
-      // Aici am putea afișa o notificare
     } finally {
       setIsToggling(false);
     }
   };
 
+  // Funcție pentru a genera un placeholder pentru imagine
+  const getPlaceholderImage = () => {
+    // Selectăm culoarea bazată pe tipul de obiectiv
+    const objectiveType = recipe.objective?.toLowerCase() || 'fit';
+    
+    // Mapăm obiectivele la culori
+    const colorMap = {
+      'masă': '#dbeafe', // albastru deschis
+      'slăbit': '#fee2e2', // roșu deschis
+      'fit': '#d1fae5', // verde deschis
+    };
+    
+    const backgroundColor = colorMap[objectiveType] || '#f3f4f6';
+    
+    // Generăm o iconiță bazată pe obiectiv
+    const emojiMap = {
+      'masă': '🍗',
+      'slăbit': '🥗',
+      'fit': '🥑',
+    };
+    
+    const emoji = emojiMap[objectiveType] || '🍳';
+    
+    return (
+      <div 
+        style={{
+          backgroundColor,
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          padding: '1rem'
+        }}
+      >
+        <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>{emoji}</div>
+        <div style={{ 
+          fontWeight: 'bold', 
+          textAlign: 'center', 
+          color: '#333',
+          fontSize: '0.9rem',
+          wordBreak: 'break-word'
+        }}>
+          {recipe.title}
+        </div>
+      </div>
+    );
+  };
+
+  // CSS class pentru card bazat pe tipul de obiectiv
+  const cardClass = `recipe-card ${recipe.objective?.toLowerCase()}-card`;
+
   return (
     <div 
-      className={`recipe-card ${recipe.objective?.toLowerCase()}-card`}
+      className={cardClass}
       onClick={handleCardClick}
     >
       <div className="recipe-image-container">
-        {recipe.imageUrl ? (
-          <img src={recipe.imageUrl} alt={recipe.title} className="recipe-image" />
+        {imageError || !recipe.imageUrl ? (
+          getPlaceholderImage()
         ) : (
-          <div className="recipe-image-placeholder">
-            <span>Fără imagine</span>
-          </div>
+          <img 
+            src={recipe.imageUrl} 
+            alt={recipe.title} 
+            className="recipe-image"
+            onError={() => setImageError(true)}
+          />
         )}
         
         {/* Buton de favorite - doar pentru utilizatori logați */}
@@ -114,30 +160,12 @@ const RecipeCard = ({ recipe, onFavoriteChange, isAdmin, onEdit, onClick }) => {
           </button>
         )}
         
-        {/* Buton de editare - doar pentru administratori cu stiluri inline pentru vizibilitate */}
-        {isAdmin === true && (
+        {/* Buton de editare - doar pentru administratori */}
+        {isAdmin && (
           <button 
             className="edit-button"
             onClick={handleEditClick}
             aria-label="Editează rețeta"
-            style={{
-              position: 'absolute',
-              top: '12px',
-              left: '12px',
-              background: 'white',
-              color: '#4b5563',
-              border: 'none',
-              width: '36px',
-              height: '36px',
-              borderRadius: '50%',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '1.2rem',
-              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-              zIndex: 100
-            }}
           >
             ✎
           </button>
@@ -149,31 +177,37 @@ const RecipeCard = ({ recipe, onFavoriteChange, isAdmin, onEdit, onClick }) => {
       <p className="recipe-description">
         {recipe.description && recipe.description.length > 120
           ? `${recipe.description.substring(0, 120)}...`
-          : recipe.description}
+          : recipe.description || 'O rețetă delicioasă și sănătoasă.'}
       </p>
       
       <div className="recipe-meta">
         <div className="recipe-meta-item">
           <span className="meta-icon">⏱️</span>
-          <span>{recipe.prepTime} min</span>
+          <span>{recipe.prepTime || 'N/A'} min</span>
         </div>
         <div className="recipe-meta-item">
           <span className="meta-icon">🔥</span>
-          <span>{recipe.calories} kcal</span>
+          <span>{recipe.calories || 'N/A'} kcal</span>
         </div>
         <div className="recipe-meta-item">
           <span className="meta-icon">🥩</span>
-          <span>{recipe.protein}g proteină</span>
+          <span>{recipe.protein || 'N/A'}g proteină</span>
         </div>
       </div>
       
       <div className="recipe-tags">
-        <span className={`recipe-tag diet-tag ${recipe.dietType?.toLowerCase()}`}>
-          {getDietTypeLabel(recipe.dietType)}
-        </span>
-        <span className={`recipe-tag objective-tag ${recipe.objective?.toLowerCase()}`}>
-          {getObjectiveLabel(recipe.objective)}
-        </span>
+        {recipe.dietType && (
+          <span className={`recipe-tag diet-tag ${recipe.dietType?.toLowerCase()}`}>
+            {getDietTypeLabel(recipe.dietType)}
+          </span>
+        )}
+        
+        {recipe.objective && (
+          <span className={`recipe-tag objective-tag ${recipe.objective?.toLowerCase()}`}>
+            {getObjectiveLabel(recipe.objective)}
+          </span>
+        )}
+        
         {recipe.proteinContent === 'ridicat' && (
           <span className="recipe-tag protein-tag">
             Proteină ridicată

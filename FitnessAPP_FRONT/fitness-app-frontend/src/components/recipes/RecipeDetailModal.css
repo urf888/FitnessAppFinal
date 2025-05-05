@@ -1,320 +1,290 @@
-.recipe-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    padding: 20px;
-    overflow-y: auto;
-  }
-  
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.recipe-detail-modal {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #555;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.close-button:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.recipe-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-right: 25px;
+}
+
+.recipe-title {
+  margin: 0;
+  color: #333 !important; /* Forțăm culoarea închisă pentru titlu */
+  font-size: 1.8rem;
+  line-height: 1.3;
+  flex: 1;
+}
+
+.edit-recipe-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+.edit-recipe-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.recipe-description {
+  color: #555 !important; /* Forțăm culoarea închisă pentru descriere */
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.recipe-image-container {
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 300px;
+}
+
+.recipe-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recipe-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  color: #888;
+  font-style: italic;
+}
+
+.recipe-meta-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.meta-item {
+  flex: 1;
+  min-width: 120px;
+}
+
+.meta-label {
+  font-weight: 600;
+  color: #555 !important; /* Forțăm culoarea închisă pentru etichete */
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.meta-value {
+  color: #333 !important; /* Forțăm culoarea închisă pentru valori */
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.recipe-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.recipe-section {
+  margin-bottom: 1rem;
+}
+
+.recipe-section h3 {
+  color: #333 !important; /* Forțăm culoarea închisă pentru titluri secțiuni */
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.ingredients-list,
+.tips-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.steps-list {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.ingredient-item,
+.tip-item {
+  margin-bottom: 0.8rem;
+  padding: 0.5rem 0;
+  color: #444 !important; /* Forțăm culoarea închisă pentru text */
+  display: flex;
+  align-items: center;
+}
+
+.ingredient-item:before {
+  content: "•";
+  color: #4CAF50;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-right: 0.5em;
+}
+
+.step-item {
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  color: #444 !important; /* Forțăm culoarea închisă pentru text */
+  line-height: 1.5;
+}
+
+.no-data {
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Special pentru modal din pagina de profil care are fundal închis */
+.profile-page .modal-overlay .recipe-detail-modal {
+  background-color: white;
+}
+
+.profile-page .modal-overlay .recipe-title,
+.profile-page .modal-overlay h2,
+.profile-page .modal-overlay h3,
+.profile-page .modal-overlay h4,
+.profile-page .modal-overlay p,
+.profile-page .modal-overlay li,
+.profile-page .modal-overlay .meta-label,
+.profile-page .modal-overlay .meta-value {
+  color: #333 !important; /* Forțăm culoarea închisă pentru tot textul din modal */
+}
+
+/* Selectori foarte specifici pentru a suprascrie orice stil anterior */
+.profile-page .modal-overlay .recipe-detail-modal * {
+  color: #444 !important; /* Forțăm culoare închisă implicit */
+}
+
+.profile-page .modal-overlay .recipe-detail-modal h2,
+.profile-page .modal-overlay .recipe-detail-modal h3,
+.profile-page .modal-overlay .recipe-detail-modal .recipe-title {
+  color: #222 !important; /* Titluri mai închise pentru contrast */
+}
+
+.profile-page .modal-overlay .recipe-detail-modal .meta-label {
+  color: #555 !important; /* Etichete meta cu gri închis */
+}
+
+.profile-page .modal-overlay .recipe-detail-modal .meta-value {
+  color: #333 !important; /* Valori meta cu negru */
+}
+
+@media (max-width: 768px) {
   .recipe-detail-modal {
-    background-color: white;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 900px;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-    animation: slide-up 0.3s ease;
-  }
-  
-  @keyframes slide-up {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-  
-  .close-button {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    font-size: 20px;
-    line-height: 1;
-    cursor: pointer;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .close-button:hover {
-    background-color: white;
-    transform: scale(1.1);
-  }
-  
-  .recipe-detail-content {
+    width: 95%;
     padding: 1.5rem;
+    max-height: 85vh;
   }
   
-  .recipe-header {
-    margin: 1.5rem 0;
-    text-align: center;
-  }
-  
-  .recipe-header h2 {
-    font-size: 1.8rem;
-    color: #333;
-    margin-top: 0;
-    margin-bottom: 1rem;
-  }
-  
-  .recipe-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  .diet-tag, .objective-tag, .difficulty-tag {
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    text-transform: uppercase;
-  }
-  
-  .diet-tag {
-    background-color: #e8f5e9;
-    color: #2e7d32;
-  }
-  
-  .diet-tag.vegan {
-    background-color: #ecfccb;
-    color: #3f6212;
-  }
-  
-  .diet-tag.vegetarian {
-    background-color: #dcfce7;
-    color: #166534;
-  }
-  
-  .diet-tag.carnivor {
-    background-color: #fee2e2;
-    color: #b91c1c;
-  }
-  
-  .objective-tag {
-    background-color: #e3f2fd;
-    color: #1565c0;
-  }
-  
-  .difficulty-tag {
-    background-color: #f3e5f5;
-    color: #6a1b9a;
-  }
-  
-  .recipe-main-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 2rem;
-  }
-  
-  @media (min-width: 768px) {
-    .recipe-main-content {
-      flex-direction: row;
-    }
+  .recipe-title {
+    font-size: 1.5rem;
   }
   
   .recipe-image-container {
-    border-radius: 8px;
-    overflow: hidden;
-    height: 280px;
-    flex: 1;
-    min-width: 0;
+    height: 200px;
   }
   
-  .recipe-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .recipe-details {
-    flex: 1;
-    min-width: 0;
-  }
-  
-  .recipe-time-info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
-  }
-  
-  .time-item {
-    display: flex;
+  .recipe-detail-header {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    flex: 1;
-    min-width: 100px;
-    margin-bottom: 1rem;
-  }
-  
-  .time-label {
-    font-size: 0.85rem;
-    color: #666;
-    margin-bottom: 0.3rem;
-  }
-  
-  .time-value {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  .recipe-nutrition {
-    background-color: #f1f8e9;
-    border-radius: 8px;
-    padding: 1.2rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .recipe-nutrition h3 {
-    color: #2e7d32;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-    text-align: center;
-  }
-  
-  .nutrition-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    align-items: flex-start;
     gap: 1rem;
   }
   
-  @media (max-width: 480px) {
-    .nutrition-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  .edit-recipe-button {
+    margin-left: 0;
   }
   
-  .nutrition-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .meta-item {
+    min-width: 100px;
   }
-  
-  .nutrition-value {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 0.2rem;
-  }
-  
-  .nutrition-label {
-    font-size: 0.8rem;
-    color: #666;
-  }
-  
-  .recipe-description {
-    margin-bottom: 1rem;
-    line-height: 1.5;
-    color: #555;
-  }
-  
-  .recipe-content-columns {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
-  }
-  
-  @media (min-width: 768px) {
-    .recipe-content-columns {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  
-  .ingredients-section,
-  .steps-section,
-  .recipe-tips {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .ingredients-section h3,
-  .steps-section h3,
-  .recipe-tips h3 {
-    color: #333;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .ingredients-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1.5rem 0;
-  }
-  
-  .ingredient-item {
-    display: flex;
-    margin-bottom: 0.8rem;
-    line-height: 1.4;
-    color: #555;
-  }
-  
-  .steps-list {
-    counter-reset: step-counter;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .step-item {
-    display: flex;
-    margin-bottom: 1.2rem;
-    position: relative;
-  }
-  
-  .step-number {
-    min-width: 30px;
-    height: 30px;
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 0.9rem;
-    margin-right: 1rem;
-    flex-shrink: 0;
-  }
-  
-  .step-content {
-    flex: 1;
-    color: #555;
-    line-height: 1.5;
-    padding-top: 0.3rem;
-  }
-  
-  .tips-list {
-    padding-left: 1.2rem;
-    margin: 0;
-    color: #555;
-    line-height: 1.5;
-  }
-  
-  .tip-item {
-    margin-bottom: 0.8rem;
-  }
+}
+
+/* Selectori prioritari pentru a asigura că modalul este întotdeauna lizibil, indiferent de context */
+.recipe-detail-modal .recipe-title,
+.recipe-detail-modal h2 {
+  color: #222 !important;
+  font-weight: 700 !important;
+}
+
+.recipe-detail-modal h3,
+.recipe-detail-modal h4 {
+  color: #333 !important;
+  font-weight: 600 !important;
+}
+
+.recipe-detail-modal p,
+.recipe-detail-modal li,
+.recipe-detail-modal .ingredient-item,
+.recipe-detail-modal .step-item,
+.recipe-detail-modal .tip-item {
+  color: #444 !important;
+}

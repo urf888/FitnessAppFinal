@@ -3,14 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/layout/Navbar';
 import RecipeFilter from '../components/recipes/recipeFilter';
 import RecipeCard from '../components/recipes/RecipeCard';
-import RecipeEditModal from '../components/recipes/RecipeEditModal';
+import RecipeDetailModal from '../components/recipes/RecipeDetailModal';
 import { useAuth } from '../contexts/AuthContext';
 import recipeService from '../api/recipeService';
 import './RecipesPage.css';
 
 const RecipesPage = () => {
   const navigate = useNavigate();
-  const auth = useAuth(); // Utilizăm variabila auth în loc de destructurare directă
+  const auth = useAuth();
   
   // State pentru rețete și filtre
   const [recipes, setRecipes] = useState([]);
@@ -29,8 +29,8 @@ const RecipesPage = () => {
     favoritesOnly: false
   });
 
-  // State pentru modal de editare
-  const [editModalOpen, setEditModalOpen] = useState(false);
+  // State pentru modal de detalii
+  const [detailModalOpen, setDetailModalOpen] = useState(false);
   const [currentRecipe, setCurrentRecipe] = useState(null);
   
   // Verificăm dacă utilizatorul este admin
@@ -101,22 +101,37 @@ const RecipesPage = () => {
     }
   };
   
-  // Handler pentru deschiderea modalului de editare
+  // Handler pentru navigarea la pagina de editare a rețetei
   const handleEditRecipe = (recipe) => {
-    setCurrentRecipe(recipe);
-    setEditModalOpen(true);
+    navigate(`/recipe/edit/${recipe.id}`);
   };
   
-  // Handler pentru deschiderea modalului de creare rețetă nouă
+  // Handler pentru deschiderea modalului de detalii
+  const handleViewRecipeDetails = async (recipe) => {
+    try {
+      setLoading(true);
+      // Obținem detaliile complete ale rețetei din baza de date
+      const completeRecipe = await recipeService.getRecipeById(recipe.id);
+      setCurrentRecipe(completeRecipe);
+      setDetailModalOpen(true);
+    } catch (error) {
+      console.error('Eroare la încărcarea detaliilor rețetei:', error);
+      // Folosim datele parțiale disponibile ca fallback
+      setCurrentRecipe(recipe);
+      setDetailModalOpen(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+  // Handler pentru navigarea la pagina de creare rețetă
   const handleCreateRecipe = () => {
-    setCurrentRecipe(null); // Setăm null pentru a indica că este o rețetă nouă
-    setEditModalOpen(true);
+    navigate('/recipe/edit/new');
   };
   
-  // Handler pentru salvarea rețetei (create sau actualizate)
-  const handleSaveRecipe = () => {
-    // Reîncărcăm rețetele pentru a reflecta modificările
-    fetchRecipes();
+  // Închiderea modalului de detalii
+  const handleCloseDetailModal = () => {
+    setDetailModalOpen(false);
   };
   
   // Navigare către pagina de generare AI
@@ -214,6 +229,7 @@ const RecipesPage = () => {
                       onFavoriteChange={handleFavoriteChange}
                       isAdmin={isAdmin}
                       onEdit={() => handleEditRecipe(recipe)}
+                      onClick={() => handleViewRecipeDetails(recipe)}
                     />
                   </div>
                 ))}
@@ -233,12 +249,11 @@ const RecipesPage = () => {
         </div>
       </div>
       
-      {/* Modal pentru editare/creare rețete */}
-      <RecipeEditModal 
-        isOpen={editModalOpen}
-        onClose={() => setEditModalOpen(false)}
+      {/* Modal pentru vizualizarea detaliilor rețetei */}
+      <RecipeDetailModal 
+        isOpen={detailModalOpen}
+        onClose={handleCloseDetailModal}
         recipe={currentRecipe}
-        onSave={handleSaveRecipe}
       />
     </div>
   );

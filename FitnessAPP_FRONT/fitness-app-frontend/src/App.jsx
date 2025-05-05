@@ -13,11 +13,9 @@ import ProgramDetailPage from './pages/ProgramDetailPage';
 // Pagini protejate pentru utilizatori
 import ProfilePage from './pages/ProfilePage';
 import FitnessAnalysisPage from './pages/FitnessAnalysisPage';
-import RecipeRecommendationPage from './pages/RecipeRecommendationPage';
-import PersonalizedRecommendationPage from './pages/PersonalizedRecommendationPage';
-import RecommendationPage from './pages/RecommendationPage'; // Pagina de recomandare AI
 import AIRecipePage from './pages/AIRecipePage';
 import RecipesPage from './pages/RecipesPage';
+import RecipeEditPage from './pages/admin/RecipeEditPage'; // Adăugăm noua pagină de editare rețete
 
 // Pagini de administrare
 import ProgramAdminPage from './pages/admin/ProgramAdminPage';
@@ -46,12 +44,8 @@ function App() {
                 <FitnessAnalysisPage />
               </PrivateRoute>
             } />
+            
             <Route path="/recipes" element={
-              <PrivateRoute>
-                <RecipeRecommendationPage />
-              </PrivateRoute>
-            } />
-            <Route path="/recipes-2" element={
               <PrivateRoute>
                 <RecipesPage />
               </PrivateRoute>
@@ -62,19 +56,14 @@ function App() {
                 <AIRecipePage />
               </PrivateRoute>
             } />
-            <Route path="/recommendations" element={
-              <PrivateRoute>
-                <PersonalizedRecommendationPage />
+            
+            {/* Noua rută pentru editarea rețetelor (protejată pentru admin) */}
+            <Route path="/recipe/edit/:recipeId" element={
+              <PrivateRoute requiredRole="admin">
+                <RecipeEditPage />
               </PrivateRoute>
             } />
-            {/* Ruta pentru recomandările de programe bazate pe AI */}
-            <Route path="/ai-programs" element={
-              <PrivateRoute>
-                <RecommendationPage />
-              </PrivateRoute>
-            } />
-            
-            
+              
             {/* Rute protejate pentru administratori */}
             <Route path="/admin/programs" element={
               <PrivateRoute requiredRole="admin">

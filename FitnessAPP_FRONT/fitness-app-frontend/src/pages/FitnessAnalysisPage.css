@@ -1,360 +1,452 @@
+/* FitnessAnalysisPage.css - stiluri redesignate */
+/* Base text overrides for the entire page */
 .fitness-analysis-page {
-    min-height: 100vh;
-    background-color: #f7f8fc;
-    padding-top: 60px; /* Spațiu pentru navbar */
+  min-height: 100vh;
+  background-color: #66719d !important;
+  padding-top: 60px; /* Spațiu pentru navbar */
+  color: #333 !important;
+}
+
+.fitness-analysis-page p,
+.fitness-analysis-page h1,
+.fitness-analysis-page h2,
+.fitness-analysis-page h3,
+.fitness-analysis-page h4,
+.fitness-analysis-page span,
+.fitness-analysis-page div,
+.fitness-analysis-page li,
+.fitness-analysis-page table th,
+.fitness-analysis-page table td {
+  color: #333 !important;
+}
+
+.analysis-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.analysis-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.analysis-header h1 {
+  color: #023d11 !important;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.analysis-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Loading & Error */
+.loading {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4caf50;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #c62828;
+}
+
+/* Sections */
+section {
+  margin-bottom: 2rem;
+}
+
+section h2 {
+  color: #333;
+  font-size: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 1.2rem;
+}
+
+section h3 {
+  color: #444;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Profile Table */
+.profile-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.profile-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.profile-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.profile-table th {
+  text-align: left;
+  padding: 12px 15px;
+  background-color: #f9f9f9;
+  color: #555;
+  font-weight: 600;
+  width: 25%;
+}
+
+.profile-table td {
+  padding: 12px 15px;
+  color: #333;
+  font-weight: 500;
+  width: 25%;
+}
+
+.profile-table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metric-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.metric-title h3 {
+  color: #444;
+  font-size: 1rem;
+  margin: 0 0 0.8rem 0;
+}
+
+.metric-value-container {
+  margin-bottom: 0.8rem;
+  line-height: 1;
+}
+
+.metric-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-right: 5px;
+}
+
+.metric-unit {
+  font-size: 1rem;
+  color: #777;
+  font-weight: normal;
+}
+
+.metric-category {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.metric-description {
+  color: #666;
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Forecast Section */
+.forecast-section {
+  margin-top: 2.5rem;
+}
+
+.forecast-content {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+}
+
+.forecast-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.forecast-metrics {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.forecast-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.forecast-metric.highlight {
+  background-color: #e8f5e9;
+  border-left: 3px solid #4caf50;
+}
+
+.forecast-metric .metric-value {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.3rem;
+}
+
+.forecast-metric .metric-label {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.forecast-description {
+  flex: 1;
+  min-width: 250px;
+}
+
+.forecast-description p {
+  margin: 0;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Chart Styling */
+.forecast-chart-container {
+  margin: 2rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.legend-line {
+  width: 20px;
+  height: 2px;
+  margin-right: 8px;
+  background-color: #888;
+}
+
+.legend-line.dotted {
+  border-top: 2px dotted #888;
+  background-color: transparent;
+}
+
+.legend-line.dashed {
+  border-top: 2px dashed #888;
+  background-color: transparent;
+}
+
+.custom-tooltip {
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border: 1px solid #eee;
+}
+
+.tooltip-label {
+  font-weight: 600;
+  color: #2a5936;
+  margin: 0 0 5px 0;
+  font-size: 0.9rem;
+}
+
+.tooltip-value, .tooltip-difference {
+  color: #333;
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+/* Calories Plan Section */
+.calories-plan {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.calories-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.calorie-metric {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 150px;
+  padding: 0.8rem;
+  background-color: white;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.calorie-metric.highlight {
+  background-color: #e8f5e9;
+  border-left: 3px solid #4caf50;
+}
+
+.calorie-type {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+
+.calorie-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* AI Recommendation Section */
+.ai-recommendation-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.ai-button-container {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.ai-recommendation-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ai-recommendation-button:hover {
+  background-color: #43a047;
+}
+
+/* Disclaimer Section */
+.disclaimer-section {
+  background-color: #f2f8f4;
+  border-radius: 8px;
+  padding: 1.2rem;
+  border-left: 3px solid #4caf50;
+  font-size: 0.95rem;
+  color: #333 !important;
+  line-height: 1.6;
+  margin-top: 2rem;
+}
+
+.disclaimer-section strong {
+  color: #2a5936 !important;
+}
+
+.disclaimer-section p {
+  color: #333 !important;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
-  
-  .analysis-content {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
-  
-  .analysis-header {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .analysis-header h1 {
-    color: #333;
-    margin-bottom: 0.5rem;
-  }
-  
-  .analysis-subtitle {
-    color: #666;
-    font-size: 1.1rem;
-  }
-  
-  .loading {
-    text-align: center;
-    padding: 3rem;
-    color: #666;
-  }
-  
-  .error-message {
-    background-color: #ffebee;
-    color: #c62828;
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    border-left: 4px solid #c62828;
-  }
-  
-  .no-profile-warning {
-    background-color: #fff8e1;
-    padding: 2rem;
-    border-radius: 8px;
-    text-align: center;
-    margin-bottom: 2rem;
-    border-left: 4px solid #ffc107;
-  }
-  
-  .no-profile-warning h3 {
-    color: #333;
-    margin-top: 0;
-    margin-bottom: 1rem;
-  }
-  
-  .no-profile-warning p {
-    color: #555;
-    margin-bottom: 1.5rem;
-  }
-  
-  .create-profile-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .create-profile-button:hover {
-    background-color: #45a049;
-  }
-  
-  .analysis-container {
-    display: flex;
+
+  .forecast-summary {
     flex-direction: column;
-    gap: 2rem;
+    align-items: stretch;
   }
   
-  .analysis-card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-  }
-  
-  .analysis-card h2 {
-    color: #333;
-    font-size: 1.3rem;
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.8rem;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .calorie-metrics {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-  
-  .metric-item {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    border-radius: 6px;
-    background-color: #f9f9f9;
-  }
-  
-  .metric-item.highlight {
-    background-color: #e8f5e9;
-    border-left: 4px solid #4CAF50;
-  }
-  
-  .metric-label {
-    font-weight: 600;
-    color: #555;
-    margin-bottom: 0.3rem;
-  }
-  
-  .metric-value {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 0.3rem;
-  }
-  
-  .metric-description {
-    font-size: 0.9rem;
-    color: #666;
-  }
-  
-  .macros-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .macros-details {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  
-  .macro-item {
-    flex: 1;
-    min-width: 200px;
-    padding: 1rem;
-    border-radius: 6px;
-  }
-  
-  .macro-item.protein {
-    background-color: rgba(76, 175, 80, 0.1);
-    border-left: 3px solid #4CAF50;
-  }
-  
-  .macro-item.carbs {
-    background-color: rgba(33, 150, 243, 0.1);
-    border-left: 3px solid #2196F3;
-  }
-  
-  .macro-item.fat {
-    background-color: rgba(255, 193, 7, 0.1);
-    border-left: 3px solid #FFC107;
-  }
-  
-  .macro-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.8rem;
-  }
-  
-  .macro-color-indicator {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    margin-right: 8px;
-  }
-  
-  .macro-item.protein .macro-color-indicator {
-    background-color: #4CAF50;
-  }
-  
-  .macro-item.carbs .macro-color-indicator {
-    background-color: #2196F3;
-  }
-  
-  .macro-item.fat .macro-color-indicator {
-    background-color: #FFC107;
-  }
-  
-  .macro-header h3 {
-    margin: 0;
-    font-size: 1.1rem;
-    color: #333;
-  }
-  
-  .macro-values {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-  }
-  
-  .macro-value {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  .macro-percentage {
-    font-weight: 600;
-    color: #555;
-  }
-  
-  .macro-description {
-    font-size: 0.9rem;
-    color: #666;
-    margin: 0;
-  }
-  
-  .progress-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-  }
-  
-  .progress-metric {
-    flex: 1;
-    text-align: center;
-    padding: 1rem;
-    background-color: #f9f9f9;
-    border-radius: 6px;
-    margin: 0 0.5rem;
-  }
-  
-  .progress-metric:first-child {
-    margin-left: 0;
-  }
-  
-  .progress-metric:last-child {
-    margin-right: 0;
-  }
-  
-  .progress-chart {
-    margin-bottom: 2rem;
-  }
-  
-  .bmi-comparison {
-    display: flex;
-    align-items: center;
+  .forecast-metrics {
     justify-content: center;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid #eee;
   }
   
-  .bmi-item {
-    flex: 1;
-    text-align: center;
-    max-width: 200px;
+  .calories-info {
+    flex-direction: column;
   }
   
-  .bmi-arrow {
-    font-size: 2rem;
-    color: #999;
-    margin: 0 1.5rem;
+  .profile-table th, 
+  .profile-table td {
+    padding: 8px 10px;
   }
-  
-  .bmi-label {
-    display: block;
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 0.3rem;
-  }
-  
-  .bmi-value {
-    display: block;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 0.2rem;
-  }
-  
-  .bmi-category {
-    display: block;
-    font-size: 0.9rem;
-    color: #555;
-    font-weight: 500;
-  }
-  
-  .analysis-disclaimer {
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    padding: 1.5rem;
-  }
-  
-  .analysis-disclaimer h3 {
-    color: #333;
-    font-size: 1.1rem;
-    margin-top: 0;
-    margin-bottom: 1rem;
-  }
-  
-  .analysis-disclaimer p {
-    color: #555;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin: 0;
-  }
-  
-  @media (min-width: 768px) {
-    .macros-container {
-      flex-direction: row;
-    }
-    
-    .macronutrient-chart {
-      flex: 1;
-      margin-right: 1.5rem;
-    }
-    
-    .macros-details {
-      flex: 1;
-      margin-top: 0;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .progress-header {
-      flex-direction: column;
-      gap: 1rem;
-    }
-    
-    .progress-metric {
-      margin: 0;
-    }
-    
-    .analysis-card {
-      padding: 1.2rem;
-    }
-    
-    .calorie-metrics {
-      gap: 1rem;
-    }
-    
-    .bmi-comparison {
-      flex-direction: column;
-      gap: 1rem;
-    }
-    
-    .bmi-arrow {
-      transform: rotate(90deg);
-      margin: 0.5rem 0;
-    }
-  }
+}

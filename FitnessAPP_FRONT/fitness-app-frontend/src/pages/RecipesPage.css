@@ -18,7 +18,7 @@
 
 .page-header h1 {
   margin: 0;
-  color: var(--light-color);
+  color: var(--light-color, #fff);
   font-size: 2.2rem;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .ai-recipe-button {
-  background-color: var(--accent-color);
+  background-color: var(--accent-color, #7c3aed);
   color: white;
 }
 
@@ -49,7 +49,7 @@
 }
 
 .create-recipe-button {
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-color, #10b981);
   color: white;
 }
 
@@ -77,14 +77,46 @@
   order: 2; /* Afișează filtrele în dreapta (a doua) */
 }
 
+/* Utilizăm grid pentru afișarea uniformă a cardurilor */
 .recipes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
 }
 
 .recipe-card-wrapper {
   height: 100%;
+  display: flex;
+}
+
+/* Asigurăm-ne că cardurile au dimensiune corectă în grid */
+.recipes-grid .recipe-card {
+  width: 100%;
+  height: 100%;
+}
+
+/* Asigurăm-ne că textul de pe carduri este mereu lizibil */
+.recipes-grid .recipe-card .recipe-title {
+  color: #1f2937;
+}
+
+.recipes-grid .recipe-card .recipe-description {
+  color: #4b5563;
+}
+
+.recipes-grid .recipe-card .recipe-meta-item {
+  color: #4b5563;
+}
+
+/* Stiluri pentru meta-informații importante pe carduri */
+.recipes-grid .recipe-meta {
+  background-color: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  margin-top: auto;
+}
+
+.recipes-grid .recipe-meta-item {
+  font-weight: 500;
 }
 
 .loading-container {
@@ -101,7 +133,7 @@
   height: 50px;
   border: 5px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  border-top-color: var(--primary-color);
+  border-top-color: var(--primary-color, #3b82f6);
   animation: spin 1s ease-in-out infinite;
   margin-bottom: 1rem;
 }
@@ -116,11 +148,11 @@
   padding: 2rem;
   border-radius: 8px;
   margin-top: 2rem;
-  border-left: 4px solid var(--error-color);
+  border-left: 4px solid var(--error-color, #ef4444);
 }
 
 .retry-button {
-  background-color: var(--error-color);
+  background-color: var(--error-color, #ef4444);
   color: white;
   border: none;
   padding: 10px 16px;
@@ -146,11 +178,11 @@
 
 .no-recipes h3 {
   margin-top: 0;
-  color: var(--light-color);
+  color: var(--light-color, #fff);
 }
 
 .reset-filters-button {
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-color, #10b981);
   color: white;
   border: none;
   padding: 10px 16px;
@@ -178,6 +210,22 @@
   min-width: 230px; /* Asigură o lățime minimă pentru filtre */
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(4px);
+}
+
+/* Stiluri pentru overlay-ul modalului în pagina de rețete */
+.recipes-page .modal-overlay .recipe-detail-modal {
+  background-color: white;
+}
+
+.recipes-page .modal-overlay .recipe-title,
+.recipes-page .modal-overlay h2,
+.recipes-page .modal-overlay h3,
+.recipes-page .modal-overlay h4,
+.recipes-page .modal-overlay p,
+.recipes-page .modal-overlay li,
+.recipes-page .modal-overlay .meta-label,
+.recipes-page .modal-overlay .meta-value {
+  color: #333 !important; /* Forțăm culoarea închisă pentru tot textul din modal */
 }
 
 /* Stiluri responsive */

@@ -95,8 +95,8 @@ const Navbar = () => {
         {isLoggedIn && (
           <>
             <Link 
-              to="/recipes-2" 
-              className={`navbar-link ${isActive('/recipes-2')}`}
+              to="/recipes" 
+              className={`navbar-link ${isActive('/recipes')}`}
             >
               Rețete
             </Link>
@@ -131,17 +131,17 @@ const Navbar = () => {
           {isLoggedIn && (
             <>
               <Link 
-                to="/recipes-2" 
-                className={`mobile-link ${isActive('/recipes-2')}`}
+                to="/recipes" 
+                className={`mobile-link ${isActive('/recipes')}`}
               >
-                Rețete
+                <span className="menu-icon">🍲</span> Rețete
               </Link>
               
               <Link 
                 to="/analysis" 
                 className={`mobile-link ${isActive('/analysis')}`}
               >
-                Analiză
+                <span className="menu-icon">📊</span> Analiză
               </Link>
               
               <Link 
@@ -152,24 +152,10 @@ const Navbar = () => {
               </Link>
               
               <Link 
-                to="/recipes" 
-                className={`mobile-link ${isActive('/recipes')}`}
-              >
-                <span className="menu-icon">🍲</span> Rețete Recomandate
-              </Link>
-              
-              <Link 
                 to="/ai-recipes" 
                 className={`mobile-link ${isActive('/ai-recipes')}`}
               >
                 <span className="menu-icon">🤖</span> Rețete AI
-              </Link>
-              
-              <Link 
-                to="/ai-programs" 
-                className={`mobile-link ${isActive('/ai-programs')}`}
-              >
-                <span className="menu-icon">📊</span> Programe AI
               </Link>
               
               {isAdmin && (
@@ -189,6 +175,8 @@ const Navbar = () => {
                   >
                     <span className="menu-icon">📋</span> Programe
                   </Link>
+                  
+                  
                 </div>
               )}
               
@@ -258,10 +246,20 @@ const Navbar = () => {
                     setDropdownOpen(false);
                   }}>
                     <span className="dropdown-icon">🍲</span>
-                    Rețete Recomandate
+                    Rețete
                   </button>
                 </li>
-                
+
+                <li>
+                  <button onClick={() => { 
+                    navigate('/programs'); 
+                    setDropdownOpen(false);
+                  }}>
+                    <span className="dropdown-icon">💪</span>
+                    Programe
+                  </button>
+                </li>
+
                 <li>
                   <button onClick={() => { 
                     navigate('/ai-recipes'); 
@@ -274,11 +272,11 @@ const Navbar = () => {
                 
                 <li>
                   <button onClick={() => { 
-                    navigate('/ai-programs'); 
+                    navigate('/analysis'); 
                     setDropdownOpen(false);
                   }}>
                     <span className="dropdown-icon">📊</span>
-                    Programe AI
+                    Analiza
                   </button>
                 </li>
                 
@@ -302,6 +300,7 @@ const Navbar = () => {
                         Administrare Programe
                       </button>
                     </li>
+                  
                   </div>
                 )}
                 
